@@ -67,7 +67,6 @@ export interface ThinkActRecord {
   errorMessage?: string
   toolName?: string
   toolParameters?: string
-  subPlanExecutionRecord?: PlanExecutionRecord
   actToolInfoList: ActToolInfo[]
 }
 
