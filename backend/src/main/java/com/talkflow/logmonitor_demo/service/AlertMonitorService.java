@@ -34,20 +34,19 @@ public class AlertMonitorService {
     private static final Random random = new Random();
 
     /**
-     * 获取详细告警信息
-     * @param alertId 告警ID（可选，如果不提供则返回所有活跃告警）
-     * @param severity 告警级别（可选：CRITICAL, HIGH, MEDIUM, LOW）
-     * @param application 应用名称（可选）
-     * @return 详细的告警信息
+     * Get detailed alert information
+     * @param severity Alert severity level (CRITICAL, HIGH, MEDIUM, LOW)
+     * @return Detailed alert information
      */
-    @Tool(description = "获取详细告警信息，支持按告警ID、级别、应用名称过滤")
-    public String getDetailedAlertInfo(String alertId, String severity, String application) {
-        logger.info("🔍 Getting detailed alert info - alertId: {}, severity: {}, application: {}", 
-                   alertId, severity, application);
+    @Tool(description = "Get detailed alert information filtered by severity level")
+    public String getDetailedAlertInfo(String severity) {
+        String application = "wmpooc"; // Fixed application name
+        logger.info("🔍 Getting detailed alert info - severity: {}, application: {}", 
+                   severity, application);
         
         try {
-            // 模拟告警数据
-            Map<String, Object> alertData = generateMockAlertData(alertId, severity, application);
+            // Generate mock alert data
+            Map<String, Object> alertData = generateMockAlertData(null, severity, application);
             
             // 构建详细的告警信息
             StringBuilder result = new StringBuilder();
@@ -118,9 +117,9 @@ public class AlertMonitorService {
         java.util.List<Map<String, Object>> alerts = new java.util.ArrayList<>();
         
         // 模拟告警数据
-        String[] alertTypes = {"内存溢出", "CPU过载", "磁盘空间不足", "网络超时", "服务不可用"};
+        String[] alertTypes = {"CPU过载", "服务不可用"};
         String[] severities = {"CRITICAL", "HIGH", "MEDIUM", "LOW"};
-        String[] applications = {"user-service", "order-service", "payment-service", "inventory-service", "notification-service"};
+        String[] applications = {"user-service", "order-service", "payment-service", "inventory-service", "notification-service", "wmpooc"};
         String[] statuses = {"ACTIVE", "ACKNOWLEDGED", "RESOLVED"};
         
         int alertCount = random.nextInt(5) + 1; // 1-5条告警
@@ -140,28 +139,40 @@ public class AlertMonitorService {
             String generatedSeverity = severity != null ? severity : severities[random.nextInt(severities.length)];
             alert.put("severity", generatedSeverity);
             
-            // 生成告警类型
-            alert.put("alertType", alertTypes[random.nextInt(alertTypes.length)]);
+            // Generate alert type
+            String alertType = alertTypes[random.nextInt(alertTypes.length)];
+            alert.put("alertType", alertType);
             
-            // 生成告警标题
+            // Generate alert title
             alert.put("title", "系统性能异常告警");
             
-            // 生成告警描述
+            // Generate alert description
             alert.put("description", "检测到系统性能指标异常，需要及时处理");
             
-            // 生成时间戳
+            // Generate timestamp
             LocalDateTime alertTime = LocalDateTime.now().minusMinutes(random.nextInt(60));
             alert.put("timestamp", alertTime.format(formatter));
             
-            // 生成状态
+            // Generate status
             alert.put("status", statuses[random.nextInt(statuses.length)]);
             
-            // 生成指标数据
+            // Generate metrics data based on alert type
             Map<String, Object> metrics = new HashMap<>();
-            metrics.put("cpuUsage", random.nextInt(40) + 60); // 60-100%
-            metrics.put("memoryUsage", random.nextInt(30) + 70); // 70-100%
-            metrics.put("diskUsage", random.nextInt(20) + 80); // 80-100%
-            metrics.put("networkLatency", random.nextInt(100) + 50); // 50-150ms
+            
+            if ("CPU过载".equals(alertType)) {
+                // For CPU overload: CPU usage must be between 80-100%
+                metrics.put("cpuUsage", random.nextInt(21) + 80); // 80-100%
+                metrics.put("memoryUsage", random.nextInt(30) + 70); // 70-100%
+                metrics.put("diskUsage", random.nextInt(20) + 80); // 80-100%
+                metrics.put("networkLatency", random.nextInt(100) + 50); // 50-150ms
+            } else if ("服务不可用".equals(alertType)) {
+                // For service unavailable: network latency must be 300ms or above
+                metrics.put("cpuUsage", random.nextInt(40) + 60); // 60-100%
+                metrics.put("memoryUsage", random.nextInt(30) + 70); // 70-100%
+                metrics.put("diskUsage", random.nextInt(20) + 80); // 80-100%
+                metrics.put("networkLatency", random.nextInt(700) + 300); // 300-1000ms
+            }
+            
             alert.put("metrics", metrics);
             
             // 生成处理建议
