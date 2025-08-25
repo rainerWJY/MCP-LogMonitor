@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.ApplicationContext;
 
-import com.talkflow.logmonitor_demo.service.HelloWorldService;
 import com.talkflow.logmonitor_demo.service.AlertMonitorService;
 import com.talkflow.logmonitor_demo.service.AlertRecommendationService;
 import com.talkflow.logmonitor_demo.service.ApplicationCpuHistoryService;
@@ -35,13 +34,6 @@ public class LogmonitorDemoApplication {
         logger.info("🛠️ Available tools: 6");
     }
 
-    @Bean
-    public ToolCallbackProvider helloWorldTools(HelloWorldService helloWorldService) {
-        logger.info("🔧 Registering HelloWorldService tools with MCP server");
-        return MethodToolCallbackProvider.builder()
-            .toolObjects(helloWorldService)
-            .build();
-    }
 
     @Bean
     public ToolCallbackProvider alertMonitorTools(

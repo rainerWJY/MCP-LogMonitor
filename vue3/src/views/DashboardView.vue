@@ -7,20 +7,24 @@
     <main class="max-w-8xl mx-auto py-6 px-2 sm:px-4 lg:px-6">
       <!-- Page Title -->
       <div class="mb-6">
-        <h1 class="text-2xl font-bold text-gray-900">监控仪表板</h1>
+        <h1 class="text-2xl font-bold text-gray-900">监控仪表板 DEMO</h1>
         <p class="mt-1 text-sm text-gray-500">实时监控系统状态和告警信息</p>
-      </div>
+      </div>  
 
       <!-- Dashboard Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <!-- Left Column: Alert Details -->
-        <div class="lg:col-span-1">
-          <AlertDetails :alert="alert" />
-        </div>
-
-        <!-- Middle Column: Observation Analysis -->
+        <!-- Left Column: Control Panel -->
         <div class="lg:col-span-1">
           <ObservationAnalysis :metrics="metrics" />
+        </div>
+
+        <!-- Middle Column: Alert Details -->
+        <div class="lg:col-span-1">
+          <AlertDetails 
+            ref="alertDetailsRef"
+            :current-severity="'CRITICAL'"
+            :current-alert-type="'CPU过载'"
+          />
         </div>
 
         <!-- Right Column: SRE Agent -->
@@ -70,6 +74,18 @@ const alert = ref(mockAlert);
 const metrics = ref(mockMetrics);
 const sreAgent = ref(mockSREAgent);
 const analysisResult = ref(mockAnalysisResult);
+
+// Component refs
+const alertDetailsRef = ref<InstanceType<typeof AlertDetails> | null>(null);
+
+// Handle data refresh event from ControlPanel
+const handleDataRefreshed = () => {
+  console.log('Data refreshed, updating AlertDetails...');
+  // Trigger refresh in AlertDetails component
+  if (alertDetailsRef.value) {
+    alertDetailsRef.value.refreshData();
+  }
+};
 
 // Component lifecycle
 onMounted(() => {

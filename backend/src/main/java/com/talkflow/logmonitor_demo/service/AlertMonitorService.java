@@ -18,6 +18,7 @@ package com.talkflow.logmonitor_demo.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.tool.annotation.Tool;
+import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -25,6 +26,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.lang.StringBuilder;
 
 @Service
 public class AlertMonitorService {
@@ -36,6 +38,56 @@ public class AlertMonitorService {
     // Alert type configuration
     private static final String[] ALL_ALERT_TYPES = {"CPU过载", "服务不可用"};
     private String currentAlertType = "CPU过载"; // Default selection
+    
+    // In-memory storage for alert data
+    private Map<String, Object> cachedAlertData = new HashMap<>();
+    private LocalDateTime lastRefreshTime = null;
+
+    /**
+     * Get detailed alert information as JSON structure
+     * @param severity Alert severity level (CRITICAL, HIGH, MEDIUM, LOW)
+     * @return Detailed alert information as Map structure
+     */
+    public Map<String, Object> getDetailedAlertInfoAsJson(String severity) {
+        String application = "wmpooc"; // Fixed application name
+        logger.info("🔍 Getting detailed alert info as JSON - severity: {}, application: {}", 
+                   severity, application);
+        
+        try {
+            // Check if we have cached data, if not generate it
+            if (cachedAlertData.isEmpty()) {
+                logger.info("⚠️ Cache is empty, triggering data refresh...");
+                refreshAlertData();
+            }
+            
+            // Get alert data from cache and filter by severity if specified
+            logger.info("🔍 Filtering alert data by severity: {}", severity);
+            Map<String, Object> alertData = filterAlertDataBySeverity(cachedAlertData, severity);
+            
+            int filteredCount = alertData.containsKey("alerts") ? ((java.util.List<?>) alertData.get("alerts")).size() : 0;
+            logger.info("📊 Filtered result: {} alerts match severity '{}'", filteredCount, severity);
+            
+            // Add metadata to the response
+            Map<String, Object> result = new HashMap<>();
+            result.put("alerts", alertData.get("alerts"));
+            result.put("totalCount", filteredCount);
+            result.put("severity", severity);
+            result.put("application", application);
+            result.put("queryTime", LocalDateTime.now().format(formatter));
+            result.put("cacheTime", lastRefreshTime != null ? lastRefreshTime.format(formatter) : null);
+            
+            logger.info("✅ Successfully retrieved alert info as JSON for {} alerts", filteredCount);
+            
+            return result;
+            
+        } catch (Exception e) {
+            logger.error("❌ Error getting alert info as JSON: {}", e.getMessage(), e);
+            Map<String, Object> errorResult = new HashMap<>();
+            errorResult.put("error", e.getMessage());
+            errorResult.put("severity", severity);
+            return errorResult;
+        }
+    }
 
     /**
      * Get detailed alert information
@@ -43,14 +95,28 @@ public class AlertMonitorService {
      * @return Detailed alert information
      */
     @Tool(description = "Get detailed alert information filtered by severity level")
-    public String getDetailedAlertInfo(String severity) {
+    public String getDetailedAlertInfo(@ToolParam(description = "Alert severity level to filter by (CRITICAL, HIGH, MEDIUM, LOW)", required = true) String severity) {
         String application = "wmpooc"; // Fixed application name
         logger.info("🔍 Getting detailed alert info - severity: {}, application: {}", 
                    severity, application);
+        logger.info("📊 Cache status: {} alerts available", 
+                   cachedAlertData.containsKey("alerts") ? ((java.util.List<?>) cachedAlertData.get("alerts")).size() : 0);
         
         try {
-            // Generate mock alert data
-            Map<String, Object> alertData = generateMockAlertData(null, severity, application);
+            // Check if we have cached data, if not generate it
+            if (cachedAlertData.isEmpty()) {
+                logger.info("⚠️ Cache is empty, triggering data refresh...");
+                refreshAlertData();
+            } else {
+                logger.info("✅ Using cached data for response");
+            }
+            
+            // Get alert data from cache and filter by severity if specified
+            logger.info("🔍 Filtering alert data by severity: {}", severity);
+            Map<String, Object> alertData = filterAlertDataBySeverity(cachedAlertData, severity);
+            
+            int filteredCount = alertData.containsKey("alerts") ? ((java.util.List<?>) alertData.get("alerts")).size() : 0;
+            logger.info("📊 Filtered result: {} alerts match severity '{}'", filteredCount, severity);
             
             // 构建详细的告警信息
             StringBuilder result = new StringBuilder();
@@ -102,6 +168,11 @@ public class AlertMonitorService {
             
             result.append(String.format("\n⏰ 查询时间: %s\n", LocalDateTime.now().format(formatter)));
             
+            // Add cache information
+            if (lastRefreshTime != null) {
+                result.append(String.format("💾 数据缓存时间: %s\n", lastRefreshTime.format(formatter)));
+            }
+            
             logger.info("✅ Successfully retrieved alert info for {} alerts", 
                        alertData.containsKey("alerts") ? ((java.util.List<?>) alertData.get("alerts")).size() : 0);
             
@@ -127,10 +198,16 @@ public class AlertMonitorService {
      * @return Current alert type
      */
     public String setAlertType(String alertType) {
+        logger.info("🔄 Setting alert type from '{}' to '{}'", currentAlertType, alertType);
+        
         if (java.util.Arrays.asList(ALL_ALERT_TYPES).contains(alertType)) {
+            String previousType = currentAlertType;
             currentAlertType = alertType;
+            logger.info("✅ Alert type changed successfully: {} -> {}", previousType, currentAlertType);
+            logger.info("💡 Note: New alerts will be generated with type '{}'", currentAlertType);
             return currentAlertType;
         } else {
+            logger.error("❌ Invalid alert type '{}'. Must be one of: {}", alertType, String.join(", ", ALL_ALERT_TYPES));
             throw new IllegalArgumentException("Invalid alert type. Must be 'CPU过载' or '服务不可用'");
         }
     }
@@ -141,6 +218,168 @@ public class AlertMonitorService {
      */
     public String[] getAvailableAlertTypes() {
         return ALL_ALERT_TYPES.clone();
+    }
+
+    /**
+     * Refresh alert data by generating new mock data and storing it in memory
+     */
+    public void refreshAlertData() {
+        logger.info("🔄 Starting alert data refresh process...");
+        logger.info("📊 Current alert type: {}", currentAlertType);
+        logger.info("⏰ Last refresh time: {}", lastRefreshTime != null ? lastRefreshTime.format(formatter) : "Never");
+        
+        try {
+            logger.info("🔧 Generating new mock alert data for all severities...");
+            // Generate new mock alert data for all severities
+            Map<String, Object> newAlertData = generateMockAlertDataForAllSeverities();
+            
+            int alertCount = newAlertData.containsKey("alerts") ? ((java.util.List<?>) newAlertData.get("alerts")).size() : 0;
+            logger.info("📈 Generated {} new alerts", alertCount);
+            logger.info("🎯 Target: 20-28 alerts (5-7 per severity level)");
+            
+            // Update cached data
+            logger.info("💾 Updating cached alert data...");
+            cachedAlertData = newAlertData;
+            lastRefreshTime = LocalDateTime.now();
+            
+            logger.info("✅ Alert data refresh completed successfully");
+            logger.info("📊 Total alerts in cache: {}", alertCount);
+            logger.info("⏰ New refresh time: {}", lastRefreshTime.format(formatter));
+            
+        } catch (Exception e) {
+            logger.error("❌ Error refreshing alert data: {}", e.getMessage(), e);
+            throw new RuntimeException("Failed to refresh alert data", e);
+        }
+    }
+
+    /**
+     * Get last refresh time
+     * @return Last refresh time
+     */
+    public LocalDateTime getLastRefreshTime() {
+        return lastRefreshTime;
+    }
+
+    /**
+     * Generate mock alert data for all severities
+     */
+    private Map<String, Object> generateMockAlertDataForAllSeverities() {
+        logger.info("🔧 Starting mock alert data generation...");
+        logger.info("🎯 Target alert type: {}", currentAlertType);
+        
+        Map<String, Object> result = new HashMap<>();
+        java.util.List<Map<String, Object>> allAlerts = new java.util.ArrayList<>();
+        
+        String[] severities = {"CRITICAL", "HIGH", "MEDIUM", "LOW"};
+        String[] applications = {"wmpooc", "order-service"}; // Only keep wmpooc and order-service
+        String[] statuses = {"ACTIVE", "ACKNOWLEDGED", "RESOLVED"};
+        
+        logger.info("📋 Available severities: {}", String.join(", ", severities));
+        logger.info("🏗️ Available applications: {}", String.join(", ", applications));
+        logger.info("📊 Available statuses: {}", String.join(", ", statuses));
+        
+        int totalAlerts = 0;
+        
+        // Generate alerts for each severity level
+        for (String severityLevel : severities) {
+            int alertCount = random.nextInt(3) + 5; // 5-7 alerts per severity (minimum 5)
+            logger.info("🔍 Generating {} alerts for severity level: {}", alertCount, severityLevel);
+            
+            for (int i = 0; i < alertCount; i++) {
+                Map<String, Object> alert = new HashMap<>();
+                
+                // Generate alert ID
+                String generatedAlertId = "ALERT-" + System.currentTimeMillis() + "-" + severityLevel + "-" + i;
+                alert.put("alertId", generatedAlertId);
+                
+                // Generate application name
+                String generatedApp = applications[random.nextInt(applications.length)];
+                alert.put("application", generatedApp);
+                
+                // Set severity
+                alert.put("severity", severityLevel);
+                
+                // Use current selected alert type
+                alert.put("alertType", currentAlertType);
+                
+                // Generate alert title and description
+                alert.put("title", "系统性能异常告警");
+                alert.put("description", "检测到系统性能指标异常，需要及时处理");
+                
+                // Generate timestamp
+                LocalDateTime alertTime = LocalDateTime.now().minusMinutes(random.nextInt(60));
+                alert.put("timestamp", alertTime.format(formatter));
+                
+                // Generate status
+                alert.put("status", statuses[random.nextInt(statuses.length)]);
+                
+                // Generate metrics data based on current alert type
+                Map<String, Object> metrics = new HashMap<>();
+                
+                if ("CPU过载".equals(currentAlertType)) {
+                    // For CPU overload: CPU usage must be between 80-100%
+                    metrics.put("cpuUsage", random.nextInt(21) + 80); // 80-100%
+                    metrics.put("memoryUsage", random.nextInt(30) + 70); // 70-100%
+                    metrics.put("diskUsage", random.nextInt(20) + 80); // 80-100%
+                    metrics.put("networkLatency", random.nextInt(100) + 50); // 50-150ms
+                } else if ("服务不可用".equals(currentAlertType)) {
+                    // For service unavailable: network latency must be 300ms or above
+                    metrics.put("cpuUsage", random.nextInt(40) + 60); // 60-100%
+                    metrics.put("memoryUsage", random.nextInt(30) + 70); // 70-100%
+                    metrics.put("diskUsage", random.nextInt(20) + 80); // 80-100%
+                    metrics.put("networkLatency", random.nextInt(700) + 300); // 300-1000ms
+                }
+                
+                alert.put("metrics", metrics);
+                allAlerts.add(alert);
+                totalAlerts++;
+                
+                logger.debug("📝 Generated alert: ID={}, Severity={}, Type={}, App={}", 
+                           generatedAlertId, severityLevel, currentAlertType, generatedApp);
+            }
+        }
+        
+                    logger.info("📊 Data generation completed. Total alerts generated: {}", totalAlerts);
+            logger.info("📈 Expected range: 20-28 alerts (5-7 per severity level)");
+            logger.info("💾 Storing generated data in result map...");
+            
+            result.put("alerts", allAlerts);
+            return result;
+    }
+
+    /**
+     * Filter alert data by severity
+     */
+    private Map<String, Object> filterAlertDataBySeverity(Map<String, Object> alertData, String severity) {
+        logger.info("🔍 Starting severity filtering process...");
+        logger.info("🎯 Filter criteria: severity = '{}'", severity);
+        
+        if (severity == null || severity.trim().isEmpty()) {
+            logger.info("ℹ️ No severity filter applied, returning all data");
+            return alertData; // Return all data if no severity filter
+        }
+        
+        Map<String, Object> filteredData = new HashMap<>();
+        filteredData.putAll(alertData);
+        
+        if (alertData.containsKey("alerts")) {
+            @SuppressWarnings("unchecked")
+            var allAlerts = (java.util.List<Map<String, Object>>) alertData.get("alerts");
+            
+            logger.info("📊 Total alerts before filtering: {}", allAlerts.size());
+            
+            java.util.List<Map<String, Object>> filteredAlerts = allAlerts.stream()
+                .filter(alert -> severity.equals(alert.get("severity")))
+                .collect(java.util.stream.Collectors.toList());
+            
+            logger.info("✅ Filtering completed. {} alerts match severity '{}'", filteredAlerts.size(), severity);
+            
+            filteredData.put("alerts", filteredAlerts);
+        } else {
+            logger.warn("⚠️ No alerts found in alert data");
+        }
+        
+        return filteredData;
     }
 
     /**
