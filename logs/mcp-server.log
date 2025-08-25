@@ -1,0 +1,781 @@
+2025-08-25 12:13:24.849 [main] INFO  c.t.l.LogmonitorDemoApplication - Starting LogmonitorDemoApplication using Java 21.0.1 with PID 59253 (/Users/whisper/Downloads/project/MCP-LogMonitor/backend/target/classes started by whisper in /Users/whisper/Downloads/project/MCP-LogMonitor)
+2025-08-25 12:13:24.849 [main] DEBUG c.t.l.LogmonitorDemoApplication - Running with Spring Boot v3.5.5, Spring v6.2.10
+2025-08-25 12:13:24.850 [main] INFO  c.t.l.LogmonitorDemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-08-25 12:13:25.279 [main] DEBUG i.n.u.i.l.InternalLoggerFactory - Using SLF4J as the default logging framework
+2025-08-25 12:13:25.281 [main] DEBUG i.n.util.internal.PlatformDependent0 - Java version: 21
+2025-08-25 12:13:25.281 [main] DEBUG i.n.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2025-08-25 12:13:25.282 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2025-08-25 12:13:25.283 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe base methods: all available
+2025-08-25 12:13:25.283 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.storeFence: available
+2025-08-25 12:13:25.284 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2025-08-25 12:13:25.285 [main] DEBUG i.n.util.internal.PlatformDependent0 - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2025-08-25 12:13:25.285 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2025-08-25 12:13:25.286 [main] DEBUG i.n.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @368f2016
+2025-08-25 12:13:25.287 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2025-08-25 12:13:25.287 [main] DEBUG i.n.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2025-08-25 12:13:25.287 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.tmpdir: /var/folders/p4/30709g1d05ng3hycyf_3mjgc0000gn/T (java.io.tmpdir)
+2025-08-25 12:13:25.287 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2025-08-25 12:13:25.287 [main] DEBUG i.n.util.internal.PlatformDependent - Platform: MacOS
+2025-08-25 12:13:25.288 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: -1 bytes
+2025-08-25 12:13:25.288 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2025-08-25 12:13:25.289 [main] DEBUG io.netty.util.internal.CleanerJava9 - java.nio.ByteBuffer.cleaner(): available
+2025-08-25 12:13:25.289 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2025-08-25 12:13:25.298 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2025-08-25 12:13:25.299 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2025-08-25 12:13:25.316 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2025-08-25 12:13:25.318 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+2025-08-25 12:13:25.369 [main] DEBUG i.n.u.concurrent.GlobalEventExecutor - -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2025-08-25 12:13:25.386 [main] INFO  c.t.l.config.McpServerConfig - 🚀 MCP Server Configuration initialized
+2025-08-25 12:13:25.386 [main] INFO  c.t.l.config.McpServerConfig - 📡 Spring AI will automatically detect StreamingHelloWorldService methods
+2025-08-25 12:13:25.386 [main] INFO  c.t.l.config.McpServerConfig - 🔄 Flux methods will be converted to async MCP tools
+2025-08-25 12:13:25.386 [main] INFO  c.t.l.config.McpServerConfig - ⚡ Server type: ASYNC (WebFlux + SSE)
+2025-08-25 12:13:25.505 [main] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - 1 RouterFunction(s) in 'routerFunctionMapping'
+2025-08-25 12:13:25.510 [main] DEBUG o.s.w.r.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-08-25 12:13:25.556 [main] DEBUG o.s.w.r.r.m.a.ControllerMethodResolver - ControllerAdvice beans: none
+2025-08-25 12:13:25.572 [main] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - enableLoggingRequestDetails='false': form data and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-08-25 12:13:25.583 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable tools capabilities, notification: true
+2025-08-25 12:13:25.583 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable resources capabilities, notification: true
+2025-08-25 12:13:25.583 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable prompts capabilities, notification: true
+2025-08-25 12:13:25.583 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable completions capabilities
+2025-08-25 12:13:25.621 [main] DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default LoopResources: DefaultLoopResources {prefix=reactor-http, daemon=true, selectCount=8, workerCount=8}
+2025-08-25 12:13:25.621 [main] DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default ConnectionProvider: reactor.netty.resources.DefaultPooledConnectionProvider@4c0e426a
+2025-08-25 12:13:25.631 [main] DEBUG r.netty.resources.DefaultLoopIOUring - Default io_uring support : false
+2025-08-25 12:13:25.637 [main] DEBUG r.netty.resources.DefaultLoopEpoll - Default Epoll support : false
+2025-08-25 12:13:25.638 [main] DEBUG r.netty.resources.DefaultLoopKQueue - Default KQueue support : false
+2025-08-25 12:13:25.639 [main] DEBUG i.n.c.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 16
+2025-08-25 12:13:25.641 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+2025-08-25 12:13:25.641 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+2025-08-25 12:13:25.645 [main] DEBUG i.n.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2025-08-25 12:13:25.678 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.processId: 59253 (auto-detected)
+2025-08-25 12:13:25.680 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+2025-08-25 12:13:25.680 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+2025-08-25 12:13:25.682 [main] DEBUG i.netty.util.NetUtilInitializations - Loopback interface: lo0 (lo0, 0:0:0:0:0:0:0:1%lo0)
+2025-08-25 12:13:25.683 [main] DEBUG io.netty.util.NetUtil - Failed to get SOMAXCONN from sysctl and file /proc/sys/net/core/somaxconn. Default: 128
+2025-08-25 12:13:25.684 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: fa:0c:45:ff:fe:cf:60:a5 (auto-detected)
+2025-08-25 12:13:25.693 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 16
+2025-08-25 12:13:25.693 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 16
+2025-08-25 12:13:25.693 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+2025-08-25 12:13:25.693 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 9
+2025-08-25 12:13:25.693 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 4194304
+2025-08-25 12:13:25.693 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+2025-08-25 12:13:25.693 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+2025-08-25 12:13:25.693 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2025-08-25 12:13:25.693 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+2025-08-25 12:13:25.693 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+2025-08-25 12:13:25.693 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: false
+2025-08-25 12:13:25.693 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+2025-08-25 12:13:25.693 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.disableCacheFinalizersForFastThreadLocalThreads: false
+2025-08-25 12:13:25.697 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: pooled
+2025-08-25 12:13:25.697 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 0
+2025-08-25 12:13:25.697 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2025-08-25 12:13:25.707 [reactor-http-nio-1] DEBUG r.netty.transport.ServerTransport - [6c4d0043, L:/[0:0:0:0:0:0:0:0]:8080] Bound new server
+2025-08-25 12:13:25.708 [main] INFO  o.s.b.w.e.netty.NettyWebServer - Netty started on port 8080 (http)
+2025-08-25 12:13:25.786 [main] INFO  c.t.l.LogmonitorDemoApplication - Started LogmonitorDemoApplication in 1.24 seconds (process running for 1.736)
+2025-08-25 12:13:25.787 [main] INFO  c.t.l.LogmonitorDemoApplication - ✅ Streaming MCP Server started successfully!
+2025-08-25 12:13:25.787 [main] INFO  c.t.l.LogmonitorDemoApplication - 📱 Test page available at: http://localhost:8080
+2025-08-25 12:13:25.788 [main] INFO  c.t.l.LogmonitorDemoApplication - 🔌 SSE endpoint: http://localhost:8080/mcp/sse
+2025-08-25 12:13:25.788 [main] INFO  c.t.l.LogmonitorDemoApplication - 📨 Message endpoint: http://localhost:8080/mcp/message
+2025-08-25 12:13:25.788 [main] INFO  c.t.l.LogmonitorDemoApplication - 📊 Available streaming tools: 5
+2025-08-25 12:13:27.841 [reactor-http-nio-2] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkAccessible: true
+2025-08-25 12:13:27.841 [reactor-http-nio-2] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkBounds: true
+2025-08-25 12:13:27.842 [reactor-http-nio-2] DEBUG i.n.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@1da4b2f
+2025-08-25 12:13:27.855 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [4538000e, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54192] New http connection, requesting read
+2025-08-25 12:13:27.855 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [f0a68ee8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] New http connection, requesting read
+2025-08-25 12:13:27.855 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConfig - [4538000e, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54192] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-08-25 12:13:27.855 [reactor-http-nio-2] DEBUG r.netty.transport.TransportConfig - [f0a68ee8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-08-25 12:13:27.859 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.maxCapacityPerThread: 4096
+2025-08-25 12:13:27.860 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.ratio: 8
+2025-08-25 12:13:27.860 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.chunkSize: 32
+2025-08-25 12:13:27.860 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.blocking: false
+2025-08-25 12:13:27.860 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.batchFastThreadLocalOnly: true
+2025-08-25 12:13:27.877 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [f0a68ee8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] Increasing pending responses count: 1
+2025-08-25 12:13:27.882 [reactor-http-nio-2] DEBUG r.netty.http.server.HttpServer - [f0a68ee8-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@2206c4f
+2025-08-25 12:13:27.892 [reactor-http-nio-2] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [f0a68ee8-1] HTTP GET "/"
+2025-08-25 12:13:27.909 [reactor-http-nio-2] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - [f0a68ee8-1] Mapped to org.springframework.boot.autoconfigure.web.reactive.WelcomePageRouterFunctionFactory$$Lambda/0x0000000800469440@557989b8
+2025-08-25 12:13:27.932 [reactor-http-nio-2] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [f0a68ee8-1] Completed 200 OK
+2025-08-25 12:13:27.933 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [f0a68ee8-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] Last HTTP response frame
+2025-08-25 12:13:27.933 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [f0a68ee8-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] Decreasing pending responses count: 0
+2025-08-25 12:13:27.933 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [f0a68ee8-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:13:27.933 [reactor-http-nio-2] DEBUG r.netty.channel.ChannelOperations - [f0a68ee8-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:13:29.127 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [f0a68ee8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] Increasing pending responses count: 1
+2025-08-25 12:13:29.127 [reactor-http-nio-2] DEBUG r.netty.http.server.HttpServer - [f0a68ee8-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@2206c4f
+2025-08-25 12:13:29.128 [reactor-http-nio-2] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [f0a68ee8-2] HTTP GET "/"
+2025-08-25 12:13:29.128 [reactor-http-nio-2] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - [f0a68ee8-2] Mapped to org.springframework.boot.autoconfigure.web.reactive.WelcomePageRouterFunctionFactory$$Lambda/0x0000000800469440@557989b8
+2025-08-25 12:13:29.131 [reactor-http-nio-2] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [f0a68ee8-2] Completed 200 OK
+2025-08-25 12:13:29.132 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [f0a68ee8-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] Last HTTP response frame
+2025-08-25 12:13:29.132 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [f0a68ee8-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] Decreasing pending responses count: 0
+2025-08-25 12:13:29.132 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [f0a68ee8-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:13:29.132 [reactor-http-nio-2] DEBUG r.netty.channel.ChannelOperations - [f0a68ee8-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:13:29.306 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [f0a68ee8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] Increasing pending responses count: 1
+2025-08-25 12:13:29.307 [reactor-http-nio-2] DEBUG r.netty.http.server.HttpServer - [f0a68ee8-3, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@2206c4f
+2025-08-25 12:13:29.307 [reactor-http-nio-2] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [f0a68ee8-3] HTTP GET "/"
+2025-08-25 12:13:29.308 [reactor-http-nio-2] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - [f0a68ee8-3] Mapped to org.springframework.boot.autoconfigure.web.reactive.WelcomePageRouterFunctionFactory$$Lambda/0x0000000800469440@557989b8
+2025-08-25 12:13:29.311 [reactor-http-nio-2] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [f0a68ee8-3] Completed 200 OK
+2025-08-25 12:13:29.312 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [f0a68ee8-3, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] Last HTTP response frame
+2025-08-25 12:13:29.312 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [f0a68ee8-3, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] Decreasing pending responses count: 0
+2025-08-25 12:13:29.313 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [f0a68ee8-3, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:13:29.313 [reactor-http-nio-2] DEBUG r.netty.channel.ChannelOperations - [f0a68ee8-3, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:13:30.142 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [f0a68ee8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] Increasing pending responses count: 1
+2025-08-25 12:13:30.142 [reactor-http-nio-2] DEBUG r.netty.http.server.HttpServer - [f0a68ee8-4, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54191] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@2206c4f
+2025-08-25 12:13:30.144 [reactor-http-nio-2] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [f0a68ee8-4] HTTP GET "/mcp/sse"
+2025-08-25 12:13:30.145 [reactor-http-nio-2] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - [f0a68ee8-4] Mapped to io.modelcontextprotocol.server.transport.WebFluxSseServerTransportProvider$$Lambda/0x000000080045a488@3a703b27
+2025-08-25 12:13:33.695 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [bb7c1be1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54224] New http connection, requesting read
+2025-08-25 12:13:33.696 [reactor-http-nio-4] DEBUG r.netty.transport.TransportConfig - [bb7c1be1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54224] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-08-25 12:13:33.699 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [bb7c1be1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54224] Increasing pending responses count: 1
+2025-08-25 12:13:33.700 [reactor-http-nio-4] DEBUG r.netty.http.server.HttpServer - [bb7c1be1-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54224] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@2206c4f
+2025-08-25 12:13:33.700 [reactor-http-nio-4] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [bb7c1be1-5] HTTP POST "/mcp/message"
+2025-08-25 12:13:33.700 [reactor-http-nio-4] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - [bb7c1be1-5] Mapped to io.modelcontextprotocol.server.transport.WebFluxSseServerTransportProvider$$Lambda/0x000000080045ea88@1469fcaa
+2025-08-25 12:13:33.742 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [bb7c1be1-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54224] Last HTTP response frame
+2025-08-25 12:13:33.742 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [bb7c1be1-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54224] Headers are not sent before onComplete().
+2025-08-25 12:13:33.743 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [bb7c1be1-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54224] Decreasing pending responses count: 0
+2025-08-25 12:13:33.743 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [bb7c1be1-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54224] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:13:33.743 [reactor-http-nio-4] DEBUG r.netty.channel.ChannelOperations - [bb7c1be1-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54224] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:13:33.743 [reactor-http-nio-4] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [bb7c1be1-5] Completed 400 BAD_REQUEST
+2025-08-25 12:13:33.744 [reactor-http-nio-4] DEBUG r.n.channel.ChannelOperationsHandler - [bb7c1be1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54224] No ChannelOperation attached.
+2025-08-25 12:13:46.974 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [9fcc7ef9, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54297] New http connection, requesting read
+2025-08-25 12:13:46.976 [reactor-http-nio-5] DEBUG r.netty.transport.TransportConfig - [9fcc7ef9, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54297] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-08-25 12:13:46.980 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [9fcc7ef9, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54297] Increasing pending responses count: 1
+2025-08-25 12:13:46.981 [reactor-http-nio-5] DEBUG r.netty.http.server.HttpServer - [9fcc7ef9-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54297] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@2206c4f
+2025-08-25 12:13:46.981 [reactor-http-nio-5] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [9fcc7ef9-6] HTTP POST "/mcp/message"
+2025-08-25 12:13:46.981 [reactor-http-nio-5] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - [9fcc7ef9-6] Mapped to io.modelcontextprotocol.server.transport.WebFluxSseServerTransportProvider$$Lambda/0x000000080045ea88@1469fcaa
+2025-08-25 12:13:46.984 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [9fcc7ef9-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54297] Last HTTP response frame
+2025-08-25 12:13:46.984 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [9fcc7ef9-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54297] Headers are not sent before onComplete().
+2025-08-25 12:13:46.984 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [9fcc7ef9-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54297] Decreasing pending responses count: 0
+2025-08-25 12:13:46.985 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [9fcc7ef9-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54297] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:13:46.985 [reactor-http-nio-5] DEBUG r.netty.channel.ChannelOperations - [9fcc7ef9-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54297] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:13:46.986 [reactor-http-nio-5] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [9fcc7ef9-6] Completed 400 BAD_REQUEST
+2025-08-25 12:13:46.986 [reactor-http-nio-5] DEBUG r.n.channel.ChannelOperationsHandler - [9fcc7ef9, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:54297] No ChannelOperation attached.
+2025-08-25 12:16:39.826 [main] INFO  c.t.l.LogmonitorDemoApplication - Starting LogmonitorDemoApplication using Java 21.0.1 with PID 66621 (/Users/whisper/Downloads/project/MCP-LogMonitor/backend/target/classes started by whisper in /Users/whisper/Downloads/project/MCP-LogMonitor)
+2025-08-25 12:16:39.827 [main] DEBUG c.t.l.LogmonitorDemoApplication - Running with Spring Boot v3.5.5, Spring v6.2.10
+2025-08-25 12:16:39.827 [main] INFO  c.t.l.LogmonitorDemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-08-25 12:16:40.237 [main] DEBUG i.n.u.i.l.InternalLoggerFactory - Using SLF4J as the default logging framework
+2025-08-25 12:16:40.239 [main] DEBUG i.n.util.internal.PlatformDependent0 - Java version: 21
+2025-08-25 12:16:40.239 [main] DEBUG i.n.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2025-08-25 12:16:40.241 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2025-08-25 12:16:40.241 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe base methods: all available
+2025-08-25 12:16:40.241 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.storeFence: available
+2025-08-25 12:16:40.242 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2025-08-25 12:16:40.242 [main] DEBUG i.n.util.internal.PlatformDependent0 - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2025-08-25 12:16:40.242 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2025-08-25 12:16:40.243 [main] DEBUG i.n.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @368f2016
+2025-08-25 12:16:40.243 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2025-08-25 12:16:40.243 [main] DEBUG i.n.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2025-08-25 12:16:40.244 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.tmpdir: /var/folders/p4/30709g1d05ng3hycyf_3mjgc0000gn/T (java.io.tmpdir)
+2025-08-25 12:16:40.244 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2025-08-25 12:16:40.244 [main] DEBUG i.n.util.internal.PlatformDependent - Platform: MacOS
+2025-08-25 12:16:40.244 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: -1 bytes
+2025-08-25 12:16:40.244 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2025-08-25 12:16:40.245 [main] DEBUG io.netty.util.internal.CleanerJava9 - java.nio.ByteBuffer.cleaner(): available
+2025-08-25 12:16:40.245 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2025-08-25 12:16:40.254 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2025-08-25 12:16:40.254 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2025-08-25 12:16:40.267 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2025-08-25 12:16:40.267 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+2025-08-25 12:16:40.309 [main] DEBUG i.n.u.concurrent.GlobalEventExecutor - -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2025-08-25 12:16:40.325 [main] INFO  c.t.l.config.McpServerConfig - 🚀 MCP Server Configuration initialized
+2025-08-25 12:16:40.325 [main] INFO  c.t.l.config.McpServerConfig - 📡 Spring AI will automatically detect StreamingHelloWorldService methods
+2025-08-25 12:16:40.325 [main] INFO  c.t.l.config.McpServerConfig - 🔄 Flux methods will be converted to async MCP tools
+2025-08-25 12:16:40.325 [main] INFO  c.t.l.config.McpServerConfig - ⚡ Server type: ASYNC (WebFlux + SSE)
+2025-08-25 12:16:40.456 [main] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - 1 RouterFunction(s) in 'routerFunctionMapping'
+2025-08-25 12:16:40.466 [main] DEBUG o.s.w.r.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-08-25 12:16:40.521 [main] DEBUG o.s.w.r.r.m.a.ControllerMethodResolver - ControllerAdvice beans: none
+2025-08-25 12:16:40.541 [main] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - enableLoggingRequestDetails='false': form data and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-08-25 12:16:40.551 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable tools capabilities, notification: true
+2025-08-25 12:16:40.551 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable resources capabilities, notification: true
+2025-08-25 12:16:40.552 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable prompts capabilities, notification: true
+2025-08-25 12:16:40.552 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable completions capabilities
+2025-08-25 12:16:40.595 [main] DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default LoopResources: DefaultLoopResources {prefix=reactor-http, daemon=true, selectCount=8, workerCount=8}
+2025-08-25 12:16:40.595 [main] DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default ConnectionProvider: reactor.netty.resources.DefaultPooledConnectionProvider@54c622a7
+2025-08-25 12:16:40.605 [main] DEBUG r.netty.resources.DefaultLoopIOUring - Default io_uring support : false
+2025-08-25 12:16:40.610 [main] DEBUG r.netty.resources.DefaultLoopEpoll - Default Epoll support : false
+2025-08-25 12:16:40.611 [main] DEBUG r.netty.resources.DefaultLoopKQueue - Default KQueue support : false
+2025-08-25 12:16:40.612 [main] DEBUG i.n.c.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 16
+2025-08-25 12:16:40.616 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+2025-08-25 12:16:40.616 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+2025-08-25 12:16:40.620 [main] DEBUG i.n.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2025-08-25 12:16:40.633 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.processId: 66621 (auto-detected)
+2025-08-25 12:16:40.635 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+2025-08-25 12:16:40.635 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+2025-08-25 12:16:40.638 [main] DEBUG i.netty.util.NetUtilInitializations - Loopback interface: lo0 (lo0, 0:0:0:0:0:0:0:1%lo0)
+2025-08-25 12:16:40.638 [main] DEBUG io.netty.util.NetUtil - Failed to get SOMAXCONN from sysctl and file /proc/sys/net/core/somaxconn. Default: 128
+2025-08-25 12:16:40.640 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: fa:0c:45:ff:fe:cf:60:a5 (auto-detected)
+2025-08-25 12:16:40.650 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 16
+2025-08-25 12:16:40.651 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 16
+2025-08-25 12:16:40.651 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+2025-08-25 12:16:40.651 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 9
+2025-08-25 12:16:40.651 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 4194304
+2025-08-25 12:16:40.651 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+2025-08-25 12:16:40.651 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+2025-08-25 12:16:40.651 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2025-08-25 12:16:40.651 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+2025-08-25 12:16:40.651 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+2025-08-25 12:16:40.651 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: false
+2025-08-25 12:16:40.651 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+2025-08-25 12:16:40.651 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.disableCacheFinalizersForFastThreadLocalThreads: false
+2025-08-25 12:16:40.658 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: pooled
+2025-08-25 12:16:40.658 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 0
+2025-08-25 12:16:40.658 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2025-08-25 12:16:40.668 [reactor-http-nio-1] DEBUG r.netty.transport.ServerTransport - [441c550e, L:/[0:0:0:0:0:0:0:0]:8080] Bound new server
+2025-08-25 12:16:40.669 [main] INFO  o.s.b.w.e.netty.NettyWebServer - Netty started on port 8080 (http)
+2025-08-25 12:16:40.682 [main] INFO  c.t.l.LogmonitorDemoApplication - Started LogmonitorDemoApplication in 1.126 seconds (process running for 1.482)
+2025-08-25 12:16:40.685 [main] INFO  c.t.l.LogmonitorDemoApplication - ✅ Streaming MCP Server started successfully!
+2025-08-25 12:16:40.685 [main] INFO  c.t.l.LogmonitorDemoApplication - 📱 Test page available at: http://localhost:8080
+2025-08-25 12:16:40.685 [main] INFO  c.t.l.LogmonitorDemoApplication - 🔌 SSE endpoint: http://localhost:8080/mcp/sse
+2025-08-25 12:16:40.685 [main] INFO  c.t.l.LogmonitorDemoApplication - 📨 Message endpoint: http://localhost:8080/mcp/message
+2025-08-25 12:16:40.685 [main] INFO  c.t.l.LogmonitorDemoApplication - 📊 Available streaming tools: 5
+2025-08-25 12:16:42.114 [reactor-http-nio-2] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkAccessible: true
+2025-08-25 12:16:42.115 [reactor-http-nio-2] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkBounds: true
+2025-08-25 12:16:42.115 [reactor-http-nio-2] DEBUG i.n.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@7c05ce17
+2025-08-25 12:16:42.126 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [f9389d04, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55335] New http connection, requesting read
+2025-08-25 12:16:42.126 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [8016cc25, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55334] New http connection, requesting read
+2025-08-25 12:16:42.126 [reactor-http-nio-2] DEBUG r.netty.transport.TransportConfig - [8016cc25, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55334] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-08-25 12:16:42.126 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConfig - [f9389d04, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55335] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-08-25 12:16:42.129 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.maxCapacityPerThread: 4096
+2025-08-25 12:16:42.129 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.ratio: 8
+2025-08-25 12:16:42.129 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.chunkSize: 32
+2025-08-25 12:16:42.129 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.blocking: false
+2025-08-25 12:16:42.129 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.batchFastThreadLocalOnly: true
+2025-08-25 12:16:42.142 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [8016cc25, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55334] Increasing pending responses count: 1
+2025-08-25 12:16:42.148 [reactor-http-nio-2] DEBUG r.netty.http.server.HttpServer - [8016cc25-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55334] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@26f89ece
+2025-08-25 12:16:42.155 [reactor-http-nio-2] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [8016cc25-1] HTTP GET "/"
+2025-08-25 12:16:42.179 [reactor-http-nio-2] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - [8016cc25-1] Mapped to org.springframework.boot.autoconfigure.web.reactive.WelcomePageRouterFunctionFactory$$Lambda/0x000000080046e448@7c2f4ce7
+2025-08-25 12:16:42.197 [reactor-http-nio-2] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [8016cc25-1] Completed 200 OK
+2025-08-25 12:16:42.197 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [8016cc25-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55334] Last HTTP response frame
+2025-08-25 12:16:42.198 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [8016cc25-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55334] Decreasing pending responses count: 0
+2025-08-25 12:16:42.198 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [8016cc25-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55334] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:16:42.198 [reactor-http-nio-2] DEBUG r.netty.channel.ChannelOperations - [8016cc25-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55334] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:16:42.853 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [15fe72fb, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55341] New http connection, requesting read
+2025-08-25 12:16:42.853 [reactor-http-nio-4] DEBUG r.netty.transport.TransportConfig - [15fe72fb, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55341] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-08-25 12:16:42.855 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [15fe72fb, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55341] Increasing pending responses count: 1
+2025-08-25 12:16:42.856 [reactor-http-nio-4] DEBUG r.netty.http.server.HttpServer - [15fe72fb-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55341] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@26f89ece
+2025-08-25 12:16:42.856 [reactor-http-nio-4] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [15fe72fb-2] HTTP GET "/mcp/sse"
+2025-08-25 12:16:42.857 [reactor-http-nio-4] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - [15fe72fb-2] Mapped to io.modelcontextprotocol.server.transport.WebFluxSseServerTransportProvider$$Lambda/0x000000080045e348@42f1ddd9
+2025-08-25 12:16:44.496 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [6a5b3a28, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55350] New http connection, requesting read
+2025-08-25 12:16:44.496 [reactor-http-nio-5] DEBUG r.netty.transport.TransportConfig - [6a5b3a28, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55350] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-08-25 12:16:44.498 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [6a5b3a28, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55350] Increasing pending responses count: 1
+2025-08-25 12:16:44.498 [reactor-http-nio-5] DEBUG r.netty.http.server.HttpServer - [6a5b3a28-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55350] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@26f89ece
+2025-08-25 12:16:44.498 [reactor-http-nio-5] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [6a5b3a28-3] HTTP POST "/mcp/message"
+2025-08-25 12:16:44.499 [reactor-http-nio-5] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - [6a5b3a28-3] Mapped to io.modelcontextprotocol.server.transport.WebFluxSseServerTransportProvider$$Lambda/0x0000000800462aa0@748118d0
+2025-08-25 12:16:44.542 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [6a5b3a28-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55350] Last HTTP response frame
+2025-08-25 12:16:44.542 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [6a5b3a28-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55350] Headers are not sent before onComplete().
+2025-08-25 12:16:44.542 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [6a5b3a28-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55350] Decreasing pending responses count: 0
+2025-08-25 12:16:44.543 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [6a5b3a28-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55350] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:16:44.543 [reactor-http-nio-5] DEBUG r.netty.channel.ChannelOperations - [6a5b3a28-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55350] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:16:44.543 [reactor-http-nio-5] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [6a5b3a28-3] Completed 400 BAD_REQUEST
+2025-08-25 12:16:44.544 [reactor-http-nio-5] DEBUG r.n.channel.ChannelOperationsHandler - [6a5b3a28, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:55350] No ChannelOperation attached.
+2025-08-25 12:25:00.932 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.netty.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-25 12:25:00.933 [netty-shutdown] DEBUG r.netty.transport.ServerTransport - [441c550e, L:/[0:0:0:0:0:0:0:0]:8080] Server is about to be disposed with timeout: PT2562047H47M16.854775807S
+2025-08-25 12:25:07.135 [main] INFO  c.t.l.LogmonitorDemoApplication - Starting LogmonitorDemoApplication using Java 21.0.1 with PID 83622 (/Users/whisper/Downloads/project/MCP-LogMonitor/backend/target/classes started by whisper in /Users/whisper/Downloads/project/MCP-LogMonitor)
+2025-08-25 12:25:07.135 [main] DEBUG c.t.l.LogmonitorDemoApplication - Running with Spring Boot v3.5.5, Spring v6.2.10
+2025-08-25 12:25:07.136 [main] INFO  c.t.l.LogmonitorDemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-08-25 12:25:07.523 [main] DEBUG i.n.u.i.l.InternalLoggerFactory - Using SLF4J as the default logging framework
+2025-08-25 12:25:07.525 [main] DEBUG i.n.util.internal.PlatformDependent0 - Java version: 21
+2025-08-25 12:25:07.525 [main] DEBUG i.n.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2025-08-25 12:25:07.527 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2025-08-25 12:25:07.528 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe base methods: all available
+2025-08-25 12:25:07.528 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.storeFence: available
+2025-08-25 12:25:07.529 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2025-08-25 12:25:07.529 [main] DEBUG i.n.util.internal.PlatformDependent0 - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2025-08-25 12:25:07.529 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2025-08-25 12:25:07.530 [main] DEBUG i.n.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @368f2016
+2025-08-25 12:25:07.530 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2025-08-25 12:25:07.530 [main] DEBUG i.n.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2025-08-25 12:25:07.530 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.tmpdir: /var/folders/p4/30709g1d05ng3hycyf_3mjgc0000gn/T (java.io.tmpdir)
+2025-08-25 12:25:07.530 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2025-08-25 12:25:07.530 [main] DEBUG i.n.util.internal.PlatformDependent - Platform: MacOS
+2025-08-25 12:25:07.531 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: -1 bytes
+2025-08-25 12:25:07.531 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2025-08-25 12:25:07.531 [main] DEBUG io.netty.util.internal.CleanerJava9 - java.nio.ByteBuffer.cleaner(): available
+2025-08-25 12:25:07.531 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2025-08-25 12:25:07.539 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2025-08-25 12:25:07.539 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2025-08-25 12:25:07.552 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2025-08-25 12:25:07.552 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+2025-08-25 12:25:07.590 [main] DEBUG i.n.u.concurrent.GlobalEventExecutor - -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2025-08-25 12:25:07.601 [main] INFO  c.t.l.config.McpServerConfig - 🚀 MCP Server Configuration initialized
+2025-08-25 12:25:07.602 [main] INFO  c.t.l.config.McpServerConfig - 📡 Spring AI will automatically detect StreamingHelloWorldService methods
+2025-08-25 12:25:07.602 [main] INFO  c.t.l.config.McpServerConfig - 🔄 Flux methods will be converted to async MCP tools
+2025-08-25 12:25:07.602 [main] INFO  c.t.l.config.McpServerConfig - ⚡ Server type: ASYNC (WebFlux + SSE)
+2025-08-25 12:25:07.709 [main] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - 1 RouterFunction(s) in 'routerFunctionMapping'
+2025-08-25 12:25:07.715 [main] DEBUG o.s.w.r.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-08-25 12:25:07.759 [main] DEBUG o.s.w.r.r.m.a.ControllerMethodResolver - ControllerAdvice beans: none
+2025-08-25 12:25:07.775 [main] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - enableLoggingRequestDetails='false': form data and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-08-25 12:25:07.786 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable tools capabilities, notification: true
+2025-08-25 12:25:07.786 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable resources capabilities, notification: true
+2025-08-25 12:25:07.786 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable prompts capabilities, notification: true
+2025-08-25 12:25:07.787 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable completions capabilities
+2025-08-25 12:25:07.828 [main] DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default LoopResources: DefaultLoopResources {prefix=reactor-http, daemon=true, selectCount=8, workerCount=8}
+2025-08-25 12:25:07.828 [main] DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default ConnectionProvider: reactor.netty.resources.DefaultPooledConnectionProvider@58a2d9f9
+2025-08-25 12:25:07.839 [main] DEBUG r.netty.resources.DefaultLoopIOUring - Default io_uring support : false
+2025-08-25 12:25:07.844 [main] DEBUG r.netty.resources.DefaultLoopEpoll - Default Epoll support : false
+2025-08-25 12:25:07.845 [main] DEBUG r.netty.resources.DefaultLoopKQueue - Default KQueue support : false
+2025-08-25 12:25:07.846 [main] DEBUG i.n.c.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 16
+2025-08-25 12:25:07.850 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+2025-08-25 12:25:07.850 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+2025-08-25 12:25:07.854 [main] DEBUG i.n.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2025-08-25 12:25:07.868 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.processId: 83622 (auto-detected)
+2025-08-25 12:25:07.869 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+2025-08-25 12:25:07.869 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+2025-08-25 12:25:07.873 [main] DEBUG i.netty.util.NetUtilInitializations - Loopback interface: lo0 (lo0, 0:0:0:0:0:0:0:1%lo0)
+2025-08-25 12:25:07.874 [main] DEBUG io.netty.util.NetUtil - Failed to get SOMAXCONN from sysctl and file /proc/sys/net/core/somaxconn. Default: 128
+2025-08-25 12:25:07.875 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: fa:0c:45:ff:fe:cf:60:a5 (auto-detected)
+2025-08-25 12:25:07.885 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 16
+2025-08-25 12:25:07.885 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 16
+2025-08-25 12:25:07.885 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+2025-08-25 12:25:07.885 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 9
+2025-08-25 12:25:07.886 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 4194304
+2025-08-25 12:25:07.886 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+2025-08-25 12:25:07.886 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+2025-08-25 12:25:07.886 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2025-08-25 12:25:07.886 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+2025-08-25 12:25:07.886 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+2025-08-25 12:25:07.886 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: false
+2025-08-25 12:25:07.886 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+2025-08-25 12:25:07.886 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.disableCacheFinalizersForFastThreadLocalThreads: false
+2025-08-25 12:25:07.892 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: pooled
+2025-08-25 12:25:07.892 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 0
+2025-08-25 12:25:07.892 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2025-08-25 12:25:07.908 [reactor-http-nio-1] DEBUG r.netty.transport.ServerTransport - [5b6fef7c, L:/[0:0:0:0:0:0:0:0]:8080] Bound new server
+2025-08-25 12:25:07.910 [main] INFO  o.s.b.w.e.netty.NettyWebServer - Netty started on port 8080 (http)
+2025-08-25 12:25:07.933 [main] INFO  c.t.l.LogmonitorDemoApplication - Started LogmonitorDemoApplication in 1.052 seconds (process running for 1.515)
+2025-08-25 12:25:07.936 [main] INFO  c.t.l.LogmonitorDemoApplication - ✅ Streaming MCP Server started successfully!
+2025-08-25 12:25:07.936 [main] INFO  c.t.l.LogmonitorDemoApplication - 📱 Test page available at: http://localhost:8080
+2025-08-25 12:25:07.936 [main] INFO  c.t.l.LogmonitorDemoApplication - 🔌 SSE endpoint: http://localhost:8080/mcp/sse
+2025-08-25 12:25:07.936 [main] INFO  c.t.l.LogmonitorDemoApplication - 📨 Message endpoint: http://localhost:8080/mcp/message
+2025-08-25 12:25:07.936 [main] INFO  c.t.l.LogmonitorDemoApplication - 📊 Available streaming tools: 5
+2025-08-25 12:25:13.285 [reactor-http-nio-3] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkAccessible: true
+2025-08-25 12:25:13.285 [reactor-http-nio-3] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkBounds: true
+2025-08-25 12:25:13.286 [reactor-http-nio-3] DEBUG i.n.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@c2b473e
+2025-08-25 12:25:13.301 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [af84f4fb, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58359] New http connection, requesting read
+2025-08-25 12:25:13.301 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [08bea0a8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58358] New http connection, requesting read
+2025-08-25 12:25:13.301 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConfig - [af84f4fb, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58359] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-08-25 12:25:13.302 [reactor-http-nio-2] DEBUG r.netty.transport.TransportConfig - [08bea0a8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58358] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-08-25 12:25:13.306 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.maxCapacityPerThread: 4096
+2025-08-25 12:25:13.306 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.ratio: 8
+2025-08-25 12:25:13.306 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.chunkSize: 32
+2025-08-25 12:25:13.306 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.blocking: false
+2025-08-25 12:25:13.306 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.batchFastThreadLocalOnly: true
+2025-08-25 12:25:13.325 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [08bea0a8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58358] Increasing pending responses count: 1
+2025-08-25 12:25:13.332 [reactor-http-nio-2] DEBUG r.netty.http.server.HttpServer - [08bea0a8-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58358] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@7a871e10
+2025-08-25 12:25:13.340 [reactor-http-nio-2] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [08bea0a8-1] HTTP GET "/"
+2025-08-25 12:25:13.361 [reactor-http-nio-2] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - [08bea0a8-1] Mapped to org.springframework.boot.autoconfigure.web.reactive.WelcomePageRouterFunctionFactory$$Lambda/0x0000000800474fd0@4c6dfe32
+2025-08-25 12:25:13.380 [reactor-http-nio-2] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [08bea0a8-1] Completed 200 OK
+2025-08-25 12:25:13.381 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [08bea0a8-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58358] Last HTTP response frame
+2025-08-25 12:25:13.381 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [08bea0a8-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58358] Decreasing pending responses count: 0
+2025-08-25 12:25:13.381 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [08bea0a8-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58358] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:25:13.384 [reactor-http-nio-2] DEBUG r.netty.channel.ChannelOperations - [08bea0a8-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58358] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:25:14.039 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [08bea0a8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58358] Increasing pending responses count: 1
+2025-08-25 12:25:14.040 [reactor-http-nio-2] DEBUG r.netty.http.server.HttpServer - [08bea0a8-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58358] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@7a871e10
+2025-08-25 12:25:14.041 [reactor-http-nio-2] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [08bea0a8-2] HTTP GET "/mcp/sse"
+2025-08-25 12:25:14.042 [reactor-http-nio-2] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - [08bea0a8-2] Mapped to io.modelcontextprotocol.server.transport.WebFluxSseServerTransportProvider$$Lambda/0x0000000800461500@322549a8
+2025-08-25 12:25:15.379 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [af84f4fb, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58359] Increasing pending responses count: 1
+2025-08-25 12:25:15.379 [reactor-http-nio-3] DEBUG r.netty.http.server.HttpServer - [af84f4fb-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58359] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@7a871e10
+2025-08-25 12:25:15.379 [reactor-http-nio-3] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [af84f4fb-3] HTTP POST "/mcp/message"
+2025-08-25 12:25:15.380 [reactor-http-nio-3] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - [af84f4fb-3] Mapped to io.modelcontextprotocol.server.transport.WebFluxSseServerTransportProvider$$Lambda/0x0000000800467b00@2b66ce0c
+2025-08-25 12:25:15.440 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [af84f4fb-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58359] Last HTTP response frame
+2025-08-25 12:25:15.440 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [af84f4fb-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58359] Headers are not sent before onComplete().
+2025-08-25 12:25:15.440 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [af84f4fb-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58359] Decreasing pending responses count: 0
+2025-08-25 12:25:15.440 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [af84f4fb-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58359] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:25:15.440 [reactor-http-nio-3] DEBUG r.netty.channel.ChannelOperations - [af84f4fb-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58359] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:25:15.441 [reactor-http-nio-3] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [af84f4fb-3] Completed 400 BAD_REQUEST
+2025-08-25 12:25:15.442 [reactor-http-nio-3] DEBUG r.n.channel.ChannelOperationsHandler - [af84f4fb, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58359] No ChannelOperation attached.
+2025-08-25 12:25:16.819 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [af84f4fb, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58359] Increasing pending responses count: 1
+2025-08-25 12:25:16.819 [reactor-http-nio-3] DEBUG r.netty.http.server.HttpServer - [af84f4fb-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58359] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@7a871e10
+2025-08-25 12:25:16.820 [reactor-http-nio-3] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [af84f4fb-4] HTTP POST "/mcp/message"
+2025-08-25 12:25:16.820 [reactor-http-nio-3] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - [af84f4fb-4] Mapped to io.modelcontextprotocol.server.transport.WebFluxSseServerTransportProvider$$Lambda/0x0000000800467b00@2b66ce0c
+2025-08-25 12:25:16.825 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [af84f4fb-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58359] Last HTTP response frame
+2025-08-25 12:25:16.825 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [af84f4fb-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58359] Headers are not sent before onComplete().
+2025-08-25 12:25:16.826 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [af84f4fb-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58359] Decreasing pending responses count: 0
+2025-08-25 12:25:16.827 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [af84f4fb-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58359] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:25:16.827 [reactor-http-nio-3] DEBUG r.netty.channel.ChannelOperations - [af84f4fb-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58359] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:25:16.827 [reactor-http-nio-3] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [af84f4fb-4] Completed 400 BAD_REQUEST
+2025-08-25 12:25:16.828 [reactor-http-nio-3] DEBUG r.n.channel.ChannelOperationsHandler - [af84f4fb, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58359] No ChannelOperation attached.
+2025-08-25 12:25:19.397 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [ab6c1dc4, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58395] New http connection, requesting read
+2025-08-25 12:25:19.398 [reactor-http-nio-4] DEBUG r.netty.transport.TransportConfig - [ab6c1dc4, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58395] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-08-25 12:25:19.401 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [ab6c1dc4, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58395] Increasing pending responses count: 1
+2025-08-25 12:25:19.402 [reactor-http-nio-4] DEBUG r.netty.http.server.HttpServer - [ab6c1dc4-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58395] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@7a871e10
+2025-08-25 12:25:19.402 [reactor-http-nio-4] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [ab6c1dc4-5] HTTP POST "/mcp/message"
+2025-08-25 12:25:19.403 [reactor-http-nio-4] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - [ab6c1dc4-5] Mapped to io.modelcontextprotocol.server.transport.WebFluxSseServerTransportProvider$$Lambda/0x0000000800467b00@2b66ce0c
+2025-08-25 12:25:19.405 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [ab6c1dc4-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58395] Last HTTP response frame
+2025-08-25 12:25:19.406 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [ab6c1dc4-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58395] Headers are not sent before onComplete().
+2025-08-25 12:25:19.406 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [ab6c1dc4-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58395] Decreasing pending responses count: 0
+2025-08-25 12:25:19.406 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [ab6c1dc4-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58395] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:25:19.407 [reactor-http-nio-4] DEBUG r.netty.channel.ChannelOperations - [ab6c1dc4-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58395] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:25:19.407 [reactor-http-nio-4] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [ab6c1dc4-5] Completed 400 BAD_REQUEST
+2025-08-25 12:25:19.408 [reactor-http-nio-4] DEBUG r.n.channel.ChannelOperationsHandler - [ab6c1dc4, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:58395] No ChannelOperation attached.
+2025-08-25 12:34:37.901 [main] INFO  c.t.l.LogmonitorDemoApplication - Starting LogmonitorDemoApplication using Java 21.0.1 with PID 3243 (/Users/whisper/Downloads/project/MCP-LogMonitor/backend/target/classes started by whisper in /Users/whisper/Downloads/project/MCP-LogMonitor)
+2025-08-25 12:34:37.903 [main] DEBUG c.t.l.LogmonitorDemoApplication - Running with Spring Boot v3.5.5, Spring v6.2.10
+2025-08-25 12:34:37.903 [main] INFO  c.t.l.LogmonitorDemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-08-25 12:34:38.326 [main] DEBUG i.n.u.i.l.InternalLoggerFactory - Using SLF4J as the default logging framework
+2025-08-25 12:34:38.327 [main] DEBUG i.n.util.internal.PlatformDependent0 - Java version: 21
+2025-08-25 12:34:38.327 [main] DEBUG i.n.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2025-08-25 12:34:38.328 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2025-08-25 12:34:38.329 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe base methods: all available
+2025-08-25 12:34:38.329 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.storeFence: available
+2025-08-25 12:34:38.329 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2025-08-25 12:34:38.330 [main] DEBUG i.n.util.internal.PlatformDependent0 - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2025-08-25 12:34:38.330 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2025-08-25 12:34:38.330 [main] DEBUG i.n.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @368f2016
+2025-08-25 12:34:38.331 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2025-08-25 12:34:38.331 [main] DEBUG i.n.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2025-08-25 12:34:38.331 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.tmpdir: /var/folders/p4/30709g1d05ng3hycyf_3mjgc0000gn/T (java.io.tmpdir)
+2025-08-25 12:34:38.331 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2025-08-25 12:34:38.332 [main] DEBUG i.n.util.internal.PlatformDependent - Platform: MacOS
+2025-08-25 12:34:38.332 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: -1 bytes
+2025-08-25 12:34:38.332 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2025-08-25 12:34:38.333 [main] DEBUG io.netty.util.internal.CleanerJava9 - java.nio.ByteBuffer.cleaner(): available
+2025-08-25 12:34:38.333 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2025-08-25 12:34:38.341 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2025-08-25 12:34:38.342 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2025-08-25 12:34:38.357 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2025-08-25 12:34:38.358 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+2025-08-25 12:34:38.402 [main] DEBUG i.n.u.concurrent.GlobalEventExecutor - -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2025-08-25 12:34:38.414 [main] INFO  c.t.l.config.McpServerConfig - 🚀 MCP Server Configuration initialized
+2025-08-25 12:34:38.532 [main] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - 1 RouterFunction(s) in 'routerFunctionMapping'
+2025-08-25 12:34:38.538 [main] DEBUG o.s.w.r.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-08-25 12:34:38.585 [main] DEBUG o.s.w.r.r.m.a.ControllerMethodResolver - ControllerAdvice beans: none
+2025-08-25 12:34:38.602 [main] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - enableLoggingRequestDetails='false': form data and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-08-25 12:34:38.611 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable tools capabilities, notification: true
+2025-08-25 12:34:38.611 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable resources capabilities, notification: true
+2025-08-25 12:34:38.612 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable prompts capabilities, notification: true
+2025-08-25 12:34:38.612 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable completions capabilities
+2025-08-25 12:34:38.648 [main] DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default LoopResources: DefaultLoopResources {prefix=reactor-http, daemon=true, selectCount=8, workerCount=8}
+2025-08-25 12:34:38.648 [main] DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default ConnectionProvider: reactor.netty.resources.DefaultPooledConnectionProvider@642ee49c
+2025-08-25 12:34:38.658 [main] DEBUG r.netty.resources.DefaultLoopIOUring - Default io_uring support : false
+2025-08-25 12:34:38.665 [main] DEBUG r.netty.resources.DefaultLoopEpoll - Default Epoll support : false
+2025-08-25 12:34:38.665 [main] DEBUG r.netty.resources.DefaultLoopKQueue - Default KQueue support : false
+2025-08-25 12:34:38.666 [main] DEBUG i.n.c.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 16
+2025-08-25 12:34:38.669 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+2025-08-25 12:34:38.669 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+2025-08-25 12:34:38.672 [main] DEBUG i.n.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2025-08-25 12:34:38.685 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.processId: 3243 (auto-detected)
+2025-08-25 12:34:38.687 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+2025-08-25 12:34:38.687 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+2025-08-25 12:34:38.691 [main] DEBUG i.netty.util.NetUtilInitializations - Loopback interface: lo0 (lo0, 0:0:0:0:0:0:0:1%lo0)
+2025-08-25 12:34:38.691 [main] DEBUG io.netty.util.NetUtil - Failed to get SOMAXCONN from sysctl and file /proc/sys/net/core/somaxconn. Default: 128
+2025-08-25 12:34:38.692 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: fa:0c:45:ff:fe:cf:60:a5 (auto-detected)
+2025-08-25 12:34:38.702 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 16
+2025-08-25 12:34:38.702 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 16
+2025-08-25 12:34:38.702 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+2025-08-25 12:34:38.702 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 9
+2025-08-25 12:34:38.702 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 4194304
+2025-08-25 12:34:38.702 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+2025-08-25 12:34:38.702 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+2025-08-25 12:34:38.702 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2025-08-25 12:34:38.702 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+2025-08-25 12:34:38.702 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+2025-08-25 12:34:38.703 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: false
+2025-08-25 12:34:38.703 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+2025-08-25 12:34:38.703 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.disableCacheFinalizersForFastThreadLocalThreads: false
+2025-08-25 12:34:38.706 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: pooled
+2025-08-25 12:34:38.706 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 0
+2025-08-25 12:34:38.706 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2025-08-25 12:34:38.717 [reactor-http-nio-1] DEBUG r.netty.transport.ServerTransport - [034aa899, L:/[0:0:0:0:0:0:0:0]:8080] Bound new server
+2025-08-25 12:34:38.718 [main] INFO  o.s.b.w.e.netty.NettyWebServer - Netty started on port 8080 (http)
+2025-08-25 12:34:38.731 [main] INFO  c.t.l.LogmonitorDemoApplication - Started LogmonitorDemoApplication in 1.139 seconds (process running for 1.665)
+2025-08-25 12:34:38.732 [main] INFO  c.t.l.LogmonitorDemoApplication - ✅ Streaming MCP Server started successfully!
+2025-08-25 12:34:38.732 [main] INFO  c.t.l.LogmonitorDemoApplication - 📱 Test page available at: http://localhost:8080
+2025-08-25 12:34:38.732 [main] INFO  c.t.l.LogmonitorDemoApplication - 🔌 SSE endpoint: http://localhost:8080/mcp/sse
+2025-08-25 12:34:38.732 [main] INFO  c.t.l.LogmonitorDemoApplication - 📨 Message endpoint: http://localhost:8080/mcp/message
+2025-08-25 12:34:38.732 [main] INFO  c.t.l.LogmonitorDemoApplication - 📊 Available streaming tools: 5
+2025-08-25 12:34:45.163 [reactor-http-nio-3] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkAccessible: true
+2025-08-25 12:34:45.164 [reactor-http-nio-3] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkBounds: true
+2025-08-25 12:34:45.164 [reactor-http-nio-3] DEBUG i.n.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@90dd27c
+2025-08-25 12:34:45.178 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [adc01841, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61707] New http connection, requesting read
+2025-08-25 12:34:45.178 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [4fc9db01, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61706] New http connection, requesting read
+2025-08-25 12:34:45.178 [reactor-http-nio-2] DEBUG r.netty.transport.TransportConfig - [4fc9db01, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61706] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-08-25 12:34:45.178 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConfig - [adc01841, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61707] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-08-25 12:34:45.182 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.maxCapacityPerThread: 4096
+2025-08-25 12:34:45.182 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.ratio: 8
+2025-08-25 12:34:45.182 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.chunkSize: 32
+2025-08-25 12:34:45.182 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.blocking: false
+2025-08-25 12:34:45.182 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.batchFastThreadLocalOnly: true
+2025-08-25 12:34:45.201 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [4fc9db01, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61706] Increasing pending responses count: 1
+2025-08-25 12:34:45.206 [reactor-http-nio-2] DEBUG r.netty.http.server.HttpServer - [4fc9db01-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61706] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@725555e3
+2025-08-25 12:34:45.216 [reactor-http-nio-2] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [4fc9db01-1] HTTP GET "/"
+2025-08-25 12:34:45.235 [reactor-http-nio-2] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - [4fc9db01-1] Mapped to org.springframework.boot.autoconfigure.web.reactive.WelcomePageRouterFunctionFactory$$Lambda/0x0000000800474dc8@3b1563bb
+2025-08-25 12:34:45.259 [reactor-http-nio-2] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [4fc9db01-1] Completed 200 OK
+2025-08-25 12:34:45.260 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [4fc9db01-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61706] Last HTTP response frame
+2025-08-25 12:34:45.260 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [4fc9db01-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61706] Decreasing pending responses count: 0
+2025-08-25 12:34:45.261 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [4fc9db01-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61706] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:34:45.261 [reactor-http-nio-2] DEBUG r.netty.channel.ChannelOperations - [4fc9db01-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61706] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:34:47.390 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [4fc9db01, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61706] Increasing pending responses count: 1
+2025-08-25 12:34:47.390 [reactor-http-nio-2] DEBUG r.netty.http.server.HttpServer - [4fc9db01-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61706] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@725555e3
+2025-08-25 12:34:47.392 [reactor-http-nio-2] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [4fc9db01-2] HTTP GET "/mcp/sse"
+2025-08-25 12:34:47.393 [reactor-http-nio-2] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - [4fc9db01-2] Mapped to io.modelcontextprotocol.server.transport.WebFluxSseServerTransportProvider$$Lambda/0x000000080045fb20@5c38c1f7
+2025-08-25 12:34:47.446 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [adc01841, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61707] Increasing pending responses count: 1
+2025-08-25 12:34:47.446 [reactor-http-nio-3] DEBUG r.netty.http.server.HttpServer - [adc01841-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61707] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@725555e3
+2025-08-25 12:34:47.446 [reactor-http-nio-3] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [adc01841-3] HTTP GET "/api/mcp/tools"
+2025-08-25 12:34:47.448 [reactor-http-nio-3] DEBUG o.s.w.r.h.SimpleUrlHandlerMapping - [adc01841-3] Mapped to ResourceWebHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/]]
+2025-08-25 12:34:47.449 [reactor-http-nio-3] DEBUG o.s.w.r.resource.ResourceWebHandler - [adc01841-3] Resource not found
+2025-08-25 12:34:47.477 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [adc01841-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61707] Last HTTP response frame
+2025-08-25 12:34:47.477 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [adc01841-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61707] Headers are not sent before onComplete().
+2025-08-25 12:34:47.477 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [adc01841-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61707] Decreasing pending responses count: 0
+2025-08-25 12:34:47.478 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [adc01841-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61707] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:34:47.478 [reactor-http-nio-3] DEBUG r.netty.channel.ChannelOperations - [adc01841-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61707] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:34:47.478 [reactor-http-nio-3] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [adc01841-3] Completed 404 NOT_FOUND
+2025-08-25 12:34:47.478 [reactor-http-nio-3] DEBUG r.n.channel.ChannelOperationsHandler - [adc01841, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61707] No ChannelOperation attached.
+2025-08-25 12:34:51.144 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [202b876b, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] New http connection, requesting read
+2025-08-25 12:34:51.145 [reactor-http-nio-4] DEBUG r.netty.transport.TransportConfig - [202b876b, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-08-25 12:34:51.146 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [202b876b, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Increasing pending responses count: 1
+2025-08-25 12:34:51.146 [reactor-http-nio-4] DEBUG r.netty.http.server.HttpServer - [202b876b-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@725555e3
+2025-08-25 12:34:51.147 [reactor-http-nio-4] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [202b876b-4] HTTP GET "/api/mcp/tools"
+2025-08-25 12:34:51.147 [reactor-http-nio-4] DEBUG o.s.w.r.h.SimpleUrlHandlerMapping - [202b876b-4] Mapped to ResourceWebHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/]]
+2025-08-25 12:34:51.147 [reactor-http-nio-4] DEBUG o.s.w.r.resource.ResourceWebHandler - [202b876b-4] Resource not found
+2025-08-25 12:34:51.149 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [202b876b-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Last HTTP response frame
+2025-08-25 12:34:51.149 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [202b876b-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Headers are not sent before onComplete().
+2025-08-25 12:34:51.149 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [202b876b-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Decreasing pending responses count: 0
+2025-08-25 12:34:51.149 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [202b876b-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:34:51.149 [reactor-http-nio-4] DEBUG r.netty.channel.ChannelOperations - [202b876b-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:34:51.149 [reactor-http-nio-4] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [202b876b-4] Completed 404 NOT_FOUND
+2025-08-25 12:34:51.149 [reactor-http-nio-4] DEBUG r.n.channel.ChannelOperationsHandler - [202b876b, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] No ChannelOperation attached.
+2025-08-25 12:34:51.358 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [202b876b, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Increasing pending responses count: 1
+2025-08-25 12:34:51.359 [reactor-http-nio-4] DEBUG r.netty.http.server.HttpServer - [202b876b-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@725555e3
+2025-08-25 12:34:51.359 [reactor-http-nio-4] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [202b876b-5] HTTP GET "/api/mcp/tools"
+2025-08-25 12:34:51.360 [reactor-http-nio-4] DEBUG o.s.w.r.h.SimpleUrlHandlerMapping - [202b876b-5] Mapped to ResourceWebHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/]]
+2025-08-25 12:34:51.361 [reactor-http-nio-4] DEBUG o.s.w.r.resource.ResourceWebHandler - [202b876b-5] Resource not found
+2025-08-25 12:34:51.362 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [202b876b-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Last HTTP response frame
+2025-08-25 12:34:51.362 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [202b876b-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Headers are not sent before onComplete().
+2025-08-25 12:34:51.363 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [202b876b-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Decreasing pending responses count: 0
+2025-08-25 12:34:51.363 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [202b876b-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:34:51.363 [reactor-http-nio-4] DEBUG r.netty.channel.ChannelOperations - [202b876b-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:34:51.363 [reactor-http-nio-4] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [202b876b-5] Completed 404 NOT_FOUND
+2025-08-25 12:34:51.364 [reactor-http-nio-4] DEBUG r.n.channel.ChannelOperationsHandler - [202b876b, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] No ChannelOperation attached.
+2025-08-25 12:34:51.573 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [202b876b, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Increasing pending responses count: 1
+2025-08-25 12:34:51.573 [reactor-http-nio-4] DEBUG r.netty.http.server.HttpServer - [202b876b-3, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@725555e3
+2025-08-25 12:34:51.573 [reactor-http-nio-4] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [202b876b-6] HTTP GET "/api/mcp/tools"
+2025-08-25 12:34:51.574 [reactor-http-nio-4] DEBUG o.s.w.r.h.SimpleUrlHandlerMapping - [202b876b-6] Mapped to ResourceWebHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/]]
+2025-08-25 12:34:51.575 [reactor-http-nio-4] DEBUG o.s.w.r.resource.ResourceWebHandler - [202b876b-6] Resource not found
+2025-08-25 12:34:51.577 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [202b876b-3, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Last HTTP response frame
+2025-08-25 12:34:51.577 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [202b876b-3, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Headers are not sent before onComplete().
+2025-08-25 12:34:51.577 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [202b876b-3, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Decreasing pending responses count: 0
+2025-08-25 12:34:51.578 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [202b876b-3, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:34:51.578 [reactor-http-nio-4] DEBUG r.netty.channel.ChannelOperations - [202b876b-3, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:34:51.578 [reactor-http-nio-4] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [202b876b-6] Completed 404 NOT_FOUND
+2025-08-25 12:34:51.579 [reactor-http-nio-4] DEBUG r.n.channel.ChannelOperationsHandler - [202b876b, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:61745] No ChannelOperation attached.
+2025-08-25 12:39:00.598 [main] INFO  c.t.l.LogmonitorDemoApplication - Starting LogmonitorDemoApplication using Java 21.0.1 with PID 12301 (/Users/whisper/Downloads/project/MCP-LogMonitor/backend/target/classes started by whisper in /Users/whisper/Downloads/project/MCP-LogMonitor)
+2025-08-25 12:39:00.599 [main] DEBUG c.t.l.LogmonitorDemoApplication - Running with Spring Boot v3.5.5, Spring v6.2.10
+2025-08-25 12:39:00.600 [main] INFO  c.t.l.LogmonitorDemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-08-25 12:39:01.063 [main] DEBUG i.n.u.i.l.InternalLoggerFactory - Using SLF4J as the default logging framework
+2025-08-25 12:39:01.066 [main] DEBUG i.n.util.internal.PlatformDependent0 - Java version: 21
+2025-08-25 12:39:01.066 [main] DEBUG i.n.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2025-08-25 12:39:01.068 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2025-08-25 12:39:01.068 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe base methods: all available
+2025-08-25 12:39:01.068 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.storeFence: available
+2025-08-25 12:39:01.069 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2025-08-25 12:39:01.069 [main] DEBUG i.n.util.internal.PlatformDependent0 - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2025-08-25 12:39:01.070 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2025-08-25 12:39:01.070 [main] DEBUG i.n.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @7b2bbc3
+2025-08-25 12:39:01.071 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2025-08-25 12:39:01.071 [main] DEBUG i.n.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2025-08-25 12:39:01.071 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.tmpdir: /var/folders/p4/30709g1d05ng3hycyf_3mjgc0000gn/T (java.io.tmpdir)
+2025-08-25 12:39:01.071 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2025-08-25 12:39:01.071 [main] DEBUG i.n.util.internal.PlatformDependent - Platform: MacOS
+2025-08-25 12:39:01.072 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: -1 bytes
+2025-08-25 12:39:01.073 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2025-08-25 12:39:01.074 [main] DEBUG io.netty.util.internal.CleanerJava9 - java.nio.ByteBuffer.cleaner(): available
+2025-08-25 12:39:01.074 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2025-08-25 12:39:01.082 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2025-08-25 12:39:01.082 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2025-08-25 12:39:01.098 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2025-08-25 12:39:01.098 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+2025-08-25 12:39:01.142 [main] DEBUG i.n.u.concurrent.GlobalEventExecutor - -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2025-08-25 12:39:01.164 [main] INFO  c.t.l.config.McpServerConfig - 🚀 MCP Server Configuration initialized
+2025-08-25 12:39:01.353 [main] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - 1 RouterFunction(s) in 'routerFunctionMapping'
+2025-08-25 12:39:01.357 [main] DEBUG o.s.w.r.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-08-25 12:39:01.406 [main] DEBUG o.s.w.r.r.m.a.ControllerMethodResolver - ControllerAdvice beans: none
+2025-08-25 12:39:01.422 [main] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - enableLoggingRequestDetails='false': form data and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-08-25 12:39:01.471 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable tools capabilities, notification: true
+2025-08-25 12:39:01.472 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Registered tools: 2
+2025-08-25 12:39:01.472 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable resources capabilities, notification: true
+2025-08-25 12:39:01.472 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable prompts capabilities, notification: true
+2025-08-25 12:39:01.472 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable completions capabilities
+2025-08-25 12:39:01.506 [main] DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default LoopResources: DefaultLoopResources {prefix=reactor-http, daemon=true, selectCount=8, workerCount=8}
+2025-08-25 12:39:01.506 [main] DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default ConnectionProvider: reactor.netty.resources.DefaultPooledConnectionProvider@18a096b5
+2025-08-25 12:39:01.517 [main] DEBUG r.netty.resources.DefaultLoopIOUring - Default io_uring support : false
+2025-08-25 12:39:01.523 [main] DEBUG r.netty.resources.DefaultLoopEpoll - Default Epoll support : false
+2025-08-25 12:39:01.524 [main] DEBUG r.netty.resources.DefaultLoopKQueue - Default KQueue support : false
+2025-08-25 12:39:01.525 [main] DEBUG i.n.c.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 16
+2025-08-25 12:39:01.527 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+2025-08-25 12:39:01.527 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+2025-08-25 12:39:01.530 [main] DEBUG i.n.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2025-08-25 12:39:01.543 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.processId: 12301 (auto-detected)
+2025-08-25 12:39:01.544 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+2025-08-25 12:39:01.544 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+2025-08-25 12:39:01.549 [main] DEBUG i.netty.util.NetUtilInitializations - Loopback interface: lo0 (lo0, 0:0:0:0:0:0:0:1%lo0)
+2025-08-25 12:39:01.549 [main] DEBUG io.netty.util.NetUtil - Failed to get SOMAXCONN from sysctl and file /proc/sys/net/core/somaxconn. Default: 128
+2025-08-25 12:39:01.550 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: fa:0c:45:ff:fe:cf:60:a5 (auto-detected)
+2025-08-25 12:39:01.560 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 16
+2025-08-25 12:39:01.560 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 16
+2025-08-25 12:39:01.560 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+2025-08-25 12:39:01.560 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 9
+2025-08-25 12:39:01.560 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 4194304
+2025-08-25 12:39:01.560 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+2025-08-25 12:39:01.560 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+2025-08-25 12:39:01.560 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2025-08-25 12:39:01.560 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+2025-08-25 12:39:01.560 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+2025-08-25 12:39:01.560 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: false
+2025-08-25 12:39:01.560 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+2025-08-25 12:39:01.560 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.disableCacheFinalizersForFastThreadLocalThreads: false
+2025-08-25 12:39:01.565 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: pooled
+2025-08-25 12:39:01.565 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 0
+2025-08-25 12:39:01.565 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2025-08-25 12:39:01.576 [reactor-http-nio-1] DEBUG r.netty.transport.ServerTransport - [c6d6d06f, L:/[0:0:0:0:0:0:0:0]:8080] Bound new server
+2025-08-25 12:39:01.577 [main] INFO  o.s.b.w.e.netty.NettyWebServer - Netty started on port 8080 (http)
+2025-08-25 12:39:01.586 [main] INFO  c.t.l.LogmonitorDemoApplication - Started LogmonitorDemoApplication in 1.276 seconds (process running for 1.564)
+2025-08-25 12:39:01.589 [main] INFO  c.t.l.LogmonitorDemoApplication - ✅ Streaming MCP Server started successfully!
+2025-08-25 12:39:01.590 [main] INFO  c.t.l.LogmonitorDemoApplication - 📱 Test page available at: http://localhost:8080
+2025-08-25 12:39:01.590 [main] INFO  c.t.l.LogmonitorDemoApplication - 🔌 SSE endpoint: http://localhost:8080/mcp/sse
+2025-08-25 12:39:01.590 [main] INFO  c.t.l.LogmonitorDemoApplication - 📨 Message endpoint: http://localhost:8080/mcp/message
+2025-08-25 12:39:01.590 [main] INFO  c.t.l.LogmonitorDemoApplication - 📊 Available streaming tools: 5
+2025-08-25 12:39:06.878 [reactor-http-nio-3] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkAccessible: true
+2025-08-25 12:39:06.879 [reactor-http-nio-3] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkBounds: true
+2025-08-25 12:39:06.879 [reactor-http-nio-3] DEBUG i.n.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@2165d242
+2025-08-25 12:39:06.892 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [7069fbd6, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63277] New http connection, requesting read
+2025-08-25 12:39:06.892 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] New http connection, requesting read
+2025-08-25 12:39:06.892 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConfig - [e7c2f7f8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-08-25 12:39:06.892 [reactor-http-nio-2] DEBUG r.netty.transport.TransportConfig - [7069fbd6, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63277] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-08-25 12:39:06.896 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.maxCapacityPerThread: 4096
+2025-08-25 12:39:06.896 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.ratio: 8
+2025-08-25 12:39:06.896 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.chunkSize: 32
+2025-08-25 12:39:06.896 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.blocking: false
+2025-08-25 12:39:06.897 [reactor-http-nio-2] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.batchFastThreadLocalOnly: true
+2025-08-25 12:39:06.913 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [7069fbd6, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63277] Increasing pending responses count: 1
+2025-08-25 12:39:06.918 [reactor-http-nio-2] DEBUG r.netty.http.server.HttpServer - [7069fbd6-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63277] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@4467ddd
+2025-08-25 12:39:06.929 [reactor-http-nio-2] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [7069fbd6-1] HTTP GET "/"
+2025-08-25 12:39:06.946 [reactor-http-nio-2] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - [7069fbd6-1] Mapped to org.springframework.boot.autoconfigure.web.reactive.WelcomePageRouterFunctionFactory$$Lambda/0x00000008004ae4c8@56539ab6
+2025-08-25 12:39:06.969 [reactor-http-nio-2] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [7069fbd6-1] Completed 200 OK
+2025-08-25 12:39:06.970 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [7069fbd6-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63277] Last HTTP response frame
+2025-08-25 12:39:06.970 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [7069fbd6-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63277] Decreasing pending responses count: 0
+2025-08-25 12:39:06.971 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [7069fbd6-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63277] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:39:06.971 [reactor-http-nio-2] DEBUG r.netty.channel.ChannelOperations - [7069fbd6-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63277] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:39:07.982 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [7069fbd6, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63277] Increasing pending responses count: 1
+2025-08-25 12:39:07.983 [reactor-http-nio-2] DEBUG r.netty.http.server.HttpServer - [7069fbd6-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63277] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@4467ddd
+2025-08-25 12:39:07.983 [reactor-http-nio-2] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [7069fbd6-2] HTTP GET "/mcp/sse"
+2025-08-25 12:39:07.984 [reactor-http-nio-2] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - [7069fbd6-2] Mapped to io.modelcontextprotocol.server.transport.WebFluxSseServerTransportProvider$$Lambda/0x000000080049d680@32b94868
+2025-08-25 12:39:08.026 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Increasing pending responses count: 1
+2025-08-25 12:39:08.027 [reactor-http-nio-3] DEBUG r.netty.http.server.HttpServer - [e7c2f7f8-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@4467ddd
+2025-08-25 12:39:08.027 [reactor-http-nio-3] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [e7c2f7f8-3] HTTP GET "/api/mcp/tools"
+2025-08-25 12:39:08.028 [reactor-http-nio-3] DEBUG o.s.w.r.h.SimpleUrlHandlerMapping - [e7c2f7f8-3] Mapped to ResourceWebHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/]]
+2025-08-25 12:39:08.030 [reactor-http-nio-3] DEBUG o.s.w.r.resource.ResourceWebHandler - [e7c2f7f8-3] Resource not found
+2025-08-25 12:39:08.049 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Last HTTP response frame
+2025-08-25 12:39:08.049 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Headers are not sent before onComplete().
+2025-08-25 12:39:08.050 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Decreasing pending responses count: 0
+2025-08-25 12:39:08.050 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:39:08.050 [reactor-http-nio-3] DEBUG r.netty.channel.ChannelOperations - [e7c2f7f8-1, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:39:08.050 [reactor-http-nio-3] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [e7c2f7f8-3] Completed 404 NOT_FOUND
+2025-08-25 12:39:08.050 [reactor-http-nio-3] DEBUG r.n.channel.ChannelOperationsHandler - [e7c2f7f8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] No ChannelOperation attached.
+2025-08-25 12:39:09.404 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Increasing pending responses count: 1
+2025-08-25 12:39:09.405 [reactor-http-nio-3] DEBUG r.netty.http.server.HttpServer - [e7c2f7f8-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@4467ddd
+2025-08-25 12:39:09.406 [reactor-http-nio-3] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [e7c2f7f8-4] HTTP GET "/api/mcp/tools"
+2025-08-25 12:39:09.407 [reactor-http-nio-3] DEBUG o.s.w.r.h.SimpleUrlHandlerMapping - [e7c2f7f8-4] Mapped to ResourceWebHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/]]
+2025-08-25 12:39:09.408 [reactor-http-nio-3] DEBUG o.s.w.r.resource.ResourceWebHandler - [e7c2f7f8-4] Resource not found
+2025-08-25 12:39:09.410 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Last HTTP response frame
+2025-08-25 12:39:09.410 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Headers are not sent before onComplete().
+2025-08-25 12:39:09.410 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Decreasing pending responses count: 0
+2025-08-25 12:39:09.411 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:39:09.411 [reactor-http-nio-3] DEBUG r.netty.channel.ChannelOperations - [e7c2f7f8-2, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:39:09.411 [reactor-http-nio-3] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [e7c2f7f8-4] Completed 404 NOT_FOUND
+2025-08-25 12:39:09.412 [reactor-http-nio-3] DEBUG r.n.channel.ChannelOperationsHandler - [e7c2f7f8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] No ChannelOperation attached.
+2025-08-25 12:39:09.570 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Increasing pending responses count: 1
+2025-08-25 12:39:09.571 [reactor-http-nio-3] DEBUG r.netty.http.server.HttpServer - [e7c2f7f8-3, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@4467ddd
+2025-08-25 12:39:09.571 [reactor-http-nio-3] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [e7c2f7f8-5] HTTP GET "/api/mcp/tools"
+2025-08-25 12:39:09.572 [reactor-http-nio-3] DEBUG o.s.w.r.h.SimpleUrlHandlerMapping - [e7c2f7f8-5] Mapped to ResourceWebHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/]]
+2025-08-25 12:39:09.573 [reactor-http-nio-3] DEBUG o.s.w.r.resource.ResourceWebHandler - [e7c2f7f8-5] Resource not found
+2025-08-25 12:39:09.575 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8-3, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Last HTTP response frame
+2025-08-25 12:39:09.575 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8-3, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Headers are not sent before onComplete().
+2025-08-25 12:39:09.576 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8-3, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Decreasing pending responses count: 0
+2025-08-25 12:39:09.576 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8-3, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:39:09.577 [reactor-http-nio-3] DEBUG r.netty.channel.ChannelOperations - [e7c2f7f8-3, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:39:09.577 [reactor-http-nio-3] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [e7c2f7f8-5] Completed 404 NOT_FOUND
+2025-08-25 12:39:09.577 [reactor-http-nio-3] DEBUG r.n.channel.ChannelOperationsHandler - [e7c2f7f8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] No ChannelOperation attached.
+2025-08-25 12:39:09.751 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Increasing pending responses count: 1
+2025-08-25 12:39:09.752 [reactor-http-nio-3] DEBUG r.netty.http.server.HttpServer - [e7c2f7f8-4, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@4467ddd
+2025-08-25 12:39:09.752 [reactor-http-nio-3] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [e7c2f7f8-6] HTTP GET "/api/mcp/tools"
+2025-08-25 12:39:09.753 [reactor-http-nio-3] DEBUG o.s.w.r.h.SimpleUrlHandlerMapping - [e7c2f7f8-6] Mapped to ResourceWebHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/]]
+2025-08-25 12:39:09.754 [reactor-http-nio-3] DEBUG o.s.w.r.resource.ResourceWebHandler - [e7c2f7f8-6] Resource not found
+2025-08-25 12:39:09.755 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8-4, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Last HTTP response frame
+2025-08-25 12:39:09.755 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8-4, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Headers are not sent before onComplete().
+2025-08-25 12:39:09.757 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8-4, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Decreasing pending responses count: 0
+2025-08-25 12:39:09.758 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [e7c2f7f8-4, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] Last HTTP packet was sent, terminating the channel
+2025-08-25 12:39:09.758 [reactor-http-nio-3] DEBUG r.netty.channel.ChannelOperations - [e7c2f7f8-4, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-08-25 12:39:09.758 [reactor-http-nio-3] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - [e7c2f7f8-6] Completed 404 NOT_FOUND
+2025-08-25 12:39:09.759 [reactor-http-nio-3] DEBUG r.n.channel.ChannelOperationsHandler - [e7c2f7f8, L:/[0:0:0:0:0:0:0:1]:8080 - R:/[0:0:0:0:0:0:0:1]:63278] No ChannelOperation attached.
+2025-08-25 12:40:07.359 [main] INFO  c.t.l.LogmonitorDemoApplication - Starting LogmonitorDemoApplication using Java 21.0.1 with PID 15034 (/Users/whisper/Downloads/project/MCP-LogMonitor/backend/target/classes started by whisper in /Users/whisper/Downloads/project/MCP-LogMonitor)
+2025-08-25 12:40:07.359 [main] DEBUG c.t.l.LogmonitorDemoApplication - Running with Spring Boot v3.5.5, Spring v6.2.10
+2025-08-25 12:40:07.360 [main] INFO  c.t.l.LogmonitorDemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-08-25 12:40:07.765 [main] DEBUG i.n.u.i.l.InternalLoggerFactory - Using SLF4J as the default logging framework
+2025-08-25 12:40:07.766 [main] DEBUG i.n.util.internal.PlatformDependent0 - Java version: 21
+2025-08-25 12:40:07.767 [main] DEBUG i.n.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2025-08-25 12:40:07.768 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2025-08-25 12:40:07.768 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe base methods: all available
+2025-08-25 12:40:07.768 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.storeFence: available
+2025-08-25 12:40:07.769 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2025-08-25 12:40:07.769 [main] DEBUG i.n.util.internal.PlatformDependent0 - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2025-08-25 12:40:07.769 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2025-08-25 12:40:07.770 [main] DEBUG i.n.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @7b2bbc3
+2025-08-25 12:40:07.771 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2025-08-25 12:40:07.771 [main] DEBUG i.n.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2025-08-25 12:40:07.771 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.tmpdir: /var/folders/p4/30709g1d05ng3hycyf_3mjgc0000gn/T (java.io.tmpdir)
+2025-08-25 12:40:07.771 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2025-08-25 12:40:07.772 [main] DEBUG i.n.util.internal.PlatformDependent - Platform: MacOS
+2025-08-25 12:40:07.772 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: -1 bytes
+2025-08-25 12:40:07.772 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2025-08-25 12:40:07.773 [main] DEBUG io.netty.util.internal.CleanerJava9 - java.nio.ByteBuffer.cleaner(): available
+2025-08-25 12:40:07.773 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2025-08-25 12:40:07.780 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2025-08-25 12:40:07.780 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2025-08-25 12:40:07.793 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2025-08-25 12:40:07.793 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+2025-08-25 12:40:07.832 [main] DEBUG i.n.u.concurrent.GlobalEventExecutor - -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2025-08-25 12:40:07.846 [main] INFO  c.t.l.config.McpServerConfig - 🚀 MCP Server Configuration initialized
+2025-08-25 12:40:07.849 [main] INFO  c.t.l.LogmonitorDemoApplication - 🔧 Registering streaming tools from StreamingHelloWorldService
+2025-08-25 12:40:08.039 [main] DEBUG o.s.w.r.f.s.s.RouterFunctionMapping - 1 RouterFunction(s) in 'routerFunctionMapping'
+2025-08-25 12:40:08.044 [main] DEBUG o.s.w.r.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-08-25 12:40:08.090 [main] DEBUG o.s.w.r.r.m.a.ControllerMethodResolver - ControllerAdvice beans: none
+2025-08-25 12:40:08.111 [main] DEBUG o.s.w.s.a.HttpWebHandlerAdapter - enableLoggingRequestDetails='false': form data and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-08-25 12:40:08.169 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable tools capabilities, notification: true
+2025-08-25 12:40:08.169 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Registered tools: 2
+2025-08-25 12:40:08.169 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable resources capabilities, notification: true
+2025-08-25 12:40:08.169 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable prompts capabilities, notification: true
+2025-08-25 12:40:08.170 [main] INFO  o.s.a.m.s.a.McpServerAutoConfiguration - Enable completions capabilities
+2025-08-25 12:40:08.222 [main] DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default LoopResources: DefaultLoopResources {prefix=reactor-http, daemon=true, selectCount=8, workerCount=8}
+2025-08-25 12:40:08.222 [main] DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default ConnectionProvider: reactor.netty.resources.DefaultPooledConnectionProvider@28cd2c2
+2025-08-25 12:40:08.232 [main] DEBUG r.netty.resources.DefaultLoopIOUring - Default io_uring support : false
+2025-08-25 12:40:08.238 [main] DEBUG r.netty.resources.DefaultLoopEpoll - Default Epoll support : false
+2025-08-25 12:40:08.239 [main] DEBUG r.netty.resources.DefaultLoopKQueue - Default KQueue support : false
+2025-08-25 12:40:08.241 [main] DEBUG i.n.c.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 16
+2025-08-25 12:40:08.244 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+2025-08-25 12:40:08.244 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+2025-08-25 12:40:08.248 [main] DEBUG i.n.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2025-08-25 12:40:08.262 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.processId: 15034 (auto-detected)
+2025-08-25 12:40:08.264 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+2025-08-25 12:40:08.264 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+2025-08-25 12:40:08.272 [main] DEBUG i.netty.util.NetUtilInitializations - Loopback interface: lo0 (lo0, 0:0:0:0:0:0:0:1%lo0)
+2025-08-25 12:40:08.273 [main] DEBUG io.netty.util.NetUtil - Failed to get SOMAXCONN from sysctl and file /proc/sys/net/core/somaxconn. Default: 128
+2025-08-25 12:40:08.275 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: fa:0c:45:ff:fe:cf:60:a5 (auto-detected)
+2025-08-25 12:40:08.289 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 16
+2025-08-25 12:40:08.289 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 16
+2025-08-25 12:40:08.289 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+2025-08-25 12:40:08.289 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 9
+2025-08-25 12:40:08.290 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 4194304
+2025-08-25 12:40:08.290 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+2025-08-25 12:40:08.290 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+2025-08-25 12:40:08.290 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2025-08-25 12:40:08.290 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+2025-08-25 12:40:08.290 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+2025-08-25 12:40:08.290 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: false
+2025-08-25 12:40:08.290 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+2025-08-25 12:40:08.290 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.disableCacheFinalizersForFastThreadLocalThreads: false
+2025-08-25 12:40:08.297 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: pooled
+2025-08-25 12:40:08.297 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 0
+2025-08-25 12:40:08.297 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2025-08-25 12:40:08.309 [reactor-http-nio-1] DEBUG r.netty.transport.ServerTransport - [f17cbfd6, L:/[0:0:0:0:0:0:0:0]:8080] Bound new server
+2025-08-25 12:40:08.311 [main] INFO  o.s.b.w.e.netty.NettyWebServer - Netty started on port 8080 (http)
+2025-08-25 12:40:08.324 [main] INFO  c.t.l.LogmonitorDemoApplication - Started LogmonitorDemoApplication in 1.211 seconds (process running for 1.677)
+2025-08-25 12:40:08.326 [main] INFO  c.t.l.LogmonitorDemoApplication - ✅ Streaming MCP Server started successfully!
+2025-08-25 12:40:08.326 [main] INFO  c.t.l.LogmonitorDemoApplication - 📱 Test page available at: http://localhost:8080
+2025-08-25 12:40:08.326 [main] INFO  c.t.l.LogmonitorDemoApplication - 🔌 SSE endpoint: http://localhost:8080/mcp/sse
+2025-08-25 12:40:08.326 [main] INFO  c.t.l.LogmonitorDemoApplication - 📨 Message endpoint: http://localhost:8080/mcp/message
+2025-08-25 12:40:08.326 [main] INFO  c.t.l.LogmonitorDemoApplication - 📊 Available streaming tools: 5
