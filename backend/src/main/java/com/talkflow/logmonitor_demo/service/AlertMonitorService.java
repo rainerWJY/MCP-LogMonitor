@@ -151,7 +151,6 @@ public class AlertMonitorService {
         java.util.List<Map<String, Object>> alerts = new java.util.ArrayList<>();
         
         // 模拟告警数据
-        String[] alertTypes = {"CPU过载", "服务不可用"};
         String[] severities = {"CRITICAL", "HIGH", "MEDIUM", "LOW"};
         String[] applications = {"user-service", "order-service", "payment-service", "inventory-service", "notification-service", "wmpooc"};
         String[] statuses = {"ACTIVE", "ACKNOWLEDGED", "RESOLVED"};
@@ -205,16 +204,6 @@ public class AlertMonitorService {
                 metrics.put("diskUsage", random.nextInt(20) + 80); // 80-100%
                 metrics.put("networkLatency", random.nextInt(700) + 300); // 300-1000ms
             }
-            
-            alert.put("metrics", metrics);
-            
-            // 生成处理建议
-            java.util.List<String> recommendations = new java.util.ArrayList<>();
-            recommendations.add("检查应用日志，分析异常原因");
-            recommendations.add("重启相关服务实例");
-            recommendations.add("增加资源配置或优化代码");
-            recommendations.add("联系开发团队进行代码审查");
-            alert.put("recommendations", recommendations);
             
             alerts.add(alert);
         }

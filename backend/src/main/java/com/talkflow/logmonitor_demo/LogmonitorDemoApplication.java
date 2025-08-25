@@ -11,6 +11,9 @@ import org.springframework.context.ApplicationContext;
 
 import com.talkflow.logmonitor_demo.service.HelloWorldService;
 import com.talkflow.logmonitor_demo.service.AlertMonitorService;
+import com.talkflow.logmonitor_demo.service.AlertRecommendationService;
+import com.talkflow.logmonitor_demo.service.ApplicationCpuHistoryService;
+import com.talkflow.logmonitor_demo.service.ApplicationHealthCheckService;
 
 @SpringBootApplication
 public class LogmonitorDemoApplication {
@@ -28,8 +31,8 @@ public class LogmonitorDemoApplication {
         logger.info("✅ MCP Alert Monitor Server started successfully!");
         logger.info("📱 Test page available at: http://localhost:8080");
         logger.info("🔌 STREAMABLE endpoint: http://localhost:8080/streamable");
-        logger.info("📊 Available services: HelloWorld, AlertMonitor");
-        logger.info("🛠️ Available tools: 3");
+        logger.info("📊 Available services: HelloWorld, AlertMonitor, AlertRecommendation, ApplicationCpuHistory, ApplicationHealthCheck");
+        logger.info("🛠️ Available tools: 6");
     }
 
     @Bean
@@ -41,10 +44,15 @@ public class LogmonitorDemoApplication {
     }
 
     @Bean
-    public ToolCallbackProvider alertMonitorTools(AlertMonitorService alertMonitorService) {
-        logger.info("🚨 Registering AlertMonitorService tools with MCP server");
+    public ToolCallbackProvider alertMonitorTools(
+            AlertMonitorService alertMonitorService,
+            AlertRecommendationService alertRecommendationService,
+            ApplicationCpuHistoryService applicationCpuHistoryService,
+            ApplicationHealthCheckService applicationHealthCheckService) {
+        logger.info("🚨 Registering Alert Monitor tools with MCP server");
         return MethodToolCallbackProvider.builder()
-            .toolObjects(alertMonitorService)
+            .toolObjects(alertMonitorService, alertRecommendationService, 
+                        applicationCpuHistoryService, applicationHealthCheckService)
             .build();
     }
 }
