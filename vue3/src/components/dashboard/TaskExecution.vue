@@ -2,7 +2,7 @@
   <div class="bg-white rounded-lg shadow p-6">
     <!-- Task Execution Header -->
     <div class="flex items-center justify-between mb-6">
-      <h3 class="text-lg font-medium text-gray-900">Task Execution Monitor</h3>
+      <h3 class="text-lg font-medium text-gray-900">SRE 诊断Agent</h3>
       <div class="flex items-center space-x-3">
         <div class="flex flex-col items-end space-y-1">
           <span :class="getStatusClass(executionStatus)">
@@ -21,8 +21,8 @@
             :disabled="isExecuting"
             class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <span v-if="isExecuting">🔄 Executing...</span>
-            <span v-else>🚀 Execute Task</span>
+                      <span v-if="isExecuting">🔄 AI诊断中...</span>
+          <span v-else>🤖 点我进行AI诊断</span>
           </button>
           
           <button 
@@ -323,7 +323,7 @@ const startExecutionMonitoring = () => {
     fetchExecutionDetails()
   }, 5000) // Wait 5 seconds before first check
   
-  // Set up periodic monitoring every 10 seconds (less frequent)
+  // Set up periodic monitoring every 5 seconds
   monitoringInterval = setInterval(() => {
     if (currentPlanId.value && !isExecuting.value) {
       console.log('⏰ Periodic execution check...')
@@ -331,9 +331,9 @@ const startExecutionMonitoring = () => {
     } else {
       console.log('⚠️ Skipping periodic check - no plan ID or execution in progress')
     }
-  }, 10000) // Check every 10 seconds instead of 5
+  }, 5000) // Check every 5 seconds
   
-  console.log('✅ Execution monitoring started with 10-second interval')
+  console.log('✅ Execution monitoring started with 5-second interval')
 }
 
 const stopExecutionMonitoring = () => {
