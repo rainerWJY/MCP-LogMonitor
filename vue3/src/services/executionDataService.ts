@@ -1,6 +1,6 @@
 
 // Execution Data API service for fetching execution details from jmanus
-const API_BASE_URL = 'http://localhost:8080/api/executions'
+const API_BASE_URL = 'http://localhost:18080/api'
 
 export interface ExecutionData {
   planExecutionRecords: PlanExecutionRecord[]
@@ -87,10 +87,18 @@ export const executionDataService = {
   // Get execution details for a specific plan ID
   async getExecutionDetails(planId: string): Promise<PlanExecutionRecord> {
     try {
-      const response = await fetch(`${API_BASE_URL}/details/${encodeURIComponent(planId)}`)
+      // Use the correct endpoint from backend: /api/executor/details/{planId}
+      const url = `${API_BASE_URL}/executor/details/${encodeURIComponent(planId)}`
+      console.log('🔍 Fetching execution details from:', url)
+      
+      const response = await fetch(url)
       if (!response.ok) {
         if (response.status === 404) {
           throw new Error(`Plan execution not found: ${planId}`)
+        }
+        if (response.status === 500) {
+          console.error('❌ Backend internal server error for plan:', planId)
+          throw new Error(`Backend internal server error: ${response.status}`)
         }
         throw new Error(`HTTP error! status: ${response.status}`)
       }
@@ -101,24 +109,43 @@ export const executionDataService = {
         throw new Error(data.error)
       }
       
+      console.log('✅ Execution details fetched successfully for plan:', planId)
       return data
     } catch (error) {
       console.error('Error fetching execution details:', error)
       throw error
     }
-  },
+    },
 
-  // Execute plan by template ID
-  async executePlanByTemplate(planTemplateId: string, rawParam?: string): Promise<Map<string, any>> {
+  // Execute plan by template ID using POST method
+  async executePlanByTemplate(planTemplateId: string, rawParam?: string): Promise<{
+    planId: string
+    status: string
+    message: string
+  }> {
     try {
-      // Build URL with query parameters
-      const url = new URL(`${API_BASE_URL}/execute/${encodeURIComponent(planTemplateId)}`)
-      if (rawParam) {
-        url.searchParams.append('rawParam', rawParam)
+      // Use POST method with /executePlanByTemplateId endpoint
+      const url = `${API_BASE_URL}/plan-template/executePlanByTemplateId`
+      
+      // Prepare request body as expected by backend
+      const requestBody: any = {
+        planTemplateId: planTemplateId
       }
       
-      const response = await fetch(url.toString(), {
-        method: 'GET'
+      if (rawParam) {
+        requestBody.rawParam = rawParam
+      }
+      
+      console.log('🌐 Making POST request to:', url)
+      console.log('📤 Request body:', requestBody)
+      
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
       })
       
       if (!response.ok) {
@@ -126,10 +153,14 @@ export const executionDataService = {
           const errorData = await response.json()
           throw new Error(errorData.error || 'Bad request')
         }
+        if (response.status === 404) {
+          throw new Error('Plan template not found')
+        }
         throw new Error(`HTTP error! status: ${response.status}`)
       }
       
       const data = await response.json()
+      console.log('📥 Response received:', data)
       
       if (data.error) {
         throw new Error(data.error)

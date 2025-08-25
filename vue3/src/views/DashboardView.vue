@@ -27,12 +27,11 @@
           />
         </div>
 
-        <!-- Right Column: SRE Agent -->
+        <!-- Right Column: Task Execution -->
         <div class="lg:col-span-1">
-          <SREAgent :agent="sreAgent" :analysis-result="analysisResult" />
+          <TaskExecution />
         </div>
       </div>
-
       <!-- Additional Info Section -->
       <div class="mt-6">
         <div class="bg-white rounded-lg shadow p-6">
@@ -66,7 +65,7 @@ import { ref, onMounted } from 'vue';
 import HeaderNav from '@/components/dashboard/HeaderNav.vue';
 import AlertDetails from '@/components/dashboard/AlertDetails.vue';
 import ObservationAnalysis from '@/components/dashboard/ObservationAnalysis.vue';
-import SREAgent from '@/components/dashboard/SREAgent.vue';
+import TaskExecution from '@/components/dashboard/TaskExecution.vue';
 import { mockAlert, mockMetrics, mockSREAgent, mockAnalysisResult } from '@/data/mockData';
 
 // Reactive data
