@@ -32,6 +32,10 @@ public class AlertMonitorService {
     private static final Logger logger = LoggerFactory.getLogger(AlertMonitorService.class);
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     private static final Random random = new Random();
+    
+    // Alert type configuration
+    private static final String[] ALL_ALERT_TYPES = {"CPU过载", "服务不可用"};
+    private String currentAlertType = "CPU过载"; // Default selection
 
     /**
      * Get detailed alert information
@@ -110,7 +114,37 @@ public class AlertMonitorService {
     }
 
     /**
-     * 生成模拟告警数据
+     * Get current selected alert type
+     * @return Current alert type
+     */
+    public String getCurrentAlertType() {
+        return currentAlertType;
+    }
+
+    /**
+     * Set alert type (CPU过载 or 服务不可用)
+     * @param alertType The alert type to set
+     * @return Current alert type
+     */
+    public String setAlertType(String alertType) {
+        if (java.util.Arrays.asList(ALL_ALERT_TYPES).contains(alertType)) {
+            currentAlertType = alertType;
+            return currentAlertType;
+        } else {
+            throw new IllegalArgumentException("Invalid alert type. Must be 'CPU过载' or '服务不可用'");
+        }
+    }
+
+    /**
+     * Get all available alert types
+     * @return List of all available alert types
+     */
+    public String[] getAvailableAlertTypes() {
+        return ALL_ALERT_TYPES.clone();
+    }
+
+    /**
+     * Generate mock alert data
      */
     private Map<String, Object> generateMockAlertData(String alertId, String severity, String application) {
         Map<String, Object> result = new HashMap<>();
@@ -139,9 +173,8 @@ public class AlertMonitorService {
             String generatedSeverity = severity != null ? severity : severities[random.nextInt(severities.length)];
             alert.put("severity", generatedSeverity);
             
-            // Generate alert type
-            String alertType = alertTypes[random.nextInt(alertTypes.length)];
-            alert.put("alertType", alertType);
+            // Use current selected alert type
+            alert.put("alertType", currentAlertType);
             
             // Generate alert title
             alert.put("title", "系统性能异常告警");
@@ -156,16 +189,16 @@ public class AlertMonitorService {
             // Generate status
             alert.put("status", statuses[random.nextInt(statuses.length)]);
             
-            // Generate metrics data based on alert type
+            // Generate metrics data based on current alert type
             Map<String, Object> metrics = new HashMap<>();
             
-            if ("CPU过载".equals(alertType)) {
+            if ("CPU过载".equals(currentAlertType)) {
                 // For CPU overload: CPU usage must be between 80-100%
                 metrics.put("cpuUsage", random.nextInt(21) + 80); // 80-100%
                 metrics.put("memoryUsage", random.nextInt(30) + 70); // 70-100%
                 metrics.put("diskUsage", random.nextInt(20) + 80); // 80-100%
                 metrics.put("networkLatency", random.nextInt(100) + 50); // 50-150ms
-            } else if ("服务不可用".equals(alertType)) {
+            } else if ("服务不可用".equals(currentAlertType)) {
                 // For service unavailable: network latency must be 300ms or above
                 metrics.put("cpuUsage", random.nextInt(40) + 60); // 60-100%
                 metrics.put("memoryUsage", random.nextInt(30) + 70); // 70-100%
