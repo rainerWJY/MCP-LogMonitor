@@ -59,26 +59,39 @@
 
     <!-- Description Interface -->
     <div class="border-t pt-6">
-      <h3 class="text-xl font-semibold text-gray-800 mb-4">说明界面</h3>
-      
       <div class="prose prose-sm max-w-none">
-        <h1 class="text-2xl font-bold text-gray-900 mb-3">helloworld</h1>
+        <h1 class="text-2xl font-bold text-gray-900 mb-3">使用说明：</h1>
         
-        <h2 class="text-xl font-semibold text-gray-800 mb-2">你好 二级页面</h2>
+        <h2 class="text-xl font-semibold text-gray-800 mb-2">场景说明：</h2>
+        <p class="text-gray-700 mb-3">
+          这是目前Jmanus产品最广泛应用的场景之一，日常巡检。简单来说，就是通过mcp分析获取告警日志，然后取处理建议，基于处理建议，和一系列的后续检查，最终推断出核心问题所在，给出用户建议。
+        </p>
         
-        <h3 class="text-lg font-medium text-gray-700 mb-2">三级页面</h3>
-        
-        <div class="mt-4 p-3 bg-gray-50 rounded-md">
-          <p class="text-sm text-gray-600">
-            <strong>说明:</strong> 这是一个控制面板组件，包含故障类型切换功能和说明文档。你可以通过按钮切换不同的故障类型，查看相关的控制选项和说明信息。
-          </p>
+        <h2 class="text-xl font-semibold text-gray-800 mb-2">步骤说明：</h2>
+        <div class="space-y-2 mb-3">
+          <p class="text-gray-700"><strong>step1:</strong> 选择 CPU类故障 或者 应用类故障</p>
+          <p class="text-gray-700"><strong>step2:</strong> 选择刷新数据（这时候系统会模拟生成告警数据）</p>
+          <p class="text-gray-700"><strong>step3:</strong> 选右边的点我进行AI诊断，你将能看到详细的思考步骤。</p>
         </div>
-
-        <!-- Example Links -->
-        <div class="mt-4 space-y-2">
-          <a href="#" class="block text-blue-600 hover:text-blue-800 hover:underline">链接例子 1</a>
-          <a href="#" class="block text-blue-600 hover:text-blue-800 hover:underline">链接例子 2</a>
-          <a href="#" class="block text-blue-600 hover:text-blue-800 hover:underline">链接例子 3</a>
+        
+        <h2 class="text-xl font-semibold text-gray-800 mb-2">DEMO说明：</h2>
+        <p class="text-gray-700 mb-2">在右边展示的思考步骤中，具体体现了几个关键步骤：</p>
+        <ol class="list-decimal list-inside space-y-1 mb-3 text-gray-700">
+          <li>会先查询告警日志。</li>
+          <li>会根据告警类型，查询对应的处理方法建议。</li>
+          <li>根据处理方法建议，调用Mcp服务获取更多信息，以帮助判断和处理</li>
+          <li>基于所有信息，给到用户建议。</li>
+        </ol>
+        
+        <h2 class="text-xl font-semibold text-gray-800 mb-2">额外的扩展：</h2>
+        <div class="space-y-2 mb-3">
+          <p class="text-gray-700"><strong>1、</strong> 打开 <a href="http://localhost:18080" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline">http://localhost:18080</a></p>
+          <p class="text-gray-700"><strong>2、</strong> 选回退，退回到首页</p>
+          <p class="text-gray-700"><strong>3、</strong> 界面的其他案例：</p>
+          <div class="ml-4 space-y-1">
+            <p class="text-gray-700"><strong>3.1、</strong> 点击 【查询一个人的信息】（这用于展示无限上下文能力，能够获取网页中获取远超单次大模型处理能力的文本内容，通过jmanus的无限上下文能力进行处理）</p>
+            <p class="text-gray-700"><strong>3.2、</strong> 点击【是AI小说创作】（这是一个用于展示无限文本输出能力的样例，展示的是Jmanus可以突破输出限制，输出超长的内容）</p>
+          </div>
         </div>
       </div>
     </div>
