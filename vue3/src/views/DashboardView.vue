@@ -15,7 +15,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <!-- Left Column: Control Panel -->
         <div class="lg:col-span-1">
-          <ObservationAnalysis :metrics="metrics" />
+          <ControlPanel :metrics="metrics" />
         </div>
 
         <!-- Middle Column: Alert Details -->
@@ -64,7 +64,7 @@
 import { ref, onMounted } from 'vue';
 import HeaderNav from '@/components/dashboard/HeaderNav.vue';
 import AlertDetails from '@/components/dashboard/AlertDetails.vue';
-import ObservationAnalysis from '@/components/dashboard/ObservationAnalysis.vue';
+import ControlPanel from '@/components/dashboard/ControlPanel.vue';
 import TaskExecution from '@/components/dashboard/TaskExecution.vue';
 import { mockAlert, mockMetrics, mockSREAgent, mockAnalysisResult } from '@/data/mockData';
 

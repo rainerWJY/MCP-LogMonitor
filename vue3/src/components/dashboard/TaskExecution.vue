@@ -36,36 +36,24 @@
       </div>
     </div>
 
-    <!-- Task Input -->
-    <div class="mb-6">
-      <label class="block text-sm font-medium text-gray-700 mb-2">Plan Template ID</label>
-      <input 
-        v-model="planTemplateId"
-        type="text"
-        placeholder="Enter plan template ID"
-        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-      />
-    </div>
+    <!-- Hidden Task Input -->
+    <input 
+      v-model="planTemplateId"
+      type="hidden"
+    />
 
-    <!-- Execution Results -->
-    <div v-if="executionResult" class="mb-6">
-      <h4 class="text-sm font-medium text-gray-900 mb-3">Execution Result</h4>
-      <div class="bg-gray-50 rounded-md p-4">
-        <pre class="text-sm text-gray-700 whitespace-pre-wrap">{{ executionResult }}</pre>
-      </div>
-    </div>
 
     <!-- Parsed Output -->
     <div v-if="parsedOutput" class="mb-6">
-      <h4 class="text-sm font-medium text-gray-900 mb-3">Parsed Output</h4>
+      <h4 class="text-sm font-medium text-gray-900 mb-3">诊断建议</h4>
       <div class="bg-green-50 rounded-md p-4">
-        <pre class="text-sm text-green-700 whitespace-pre-wrap">{{ parsedOutput }}</pre>
+        <div class="text-sm text-green-700 prose prose-sm max-w-none" v-html="renderedMarkdown"></div>
       </div>
     </div>
 
     <!-- Think-Act Records with ActToolInfo -->
     <div v-if="thinkActRecords.length > 0">
-      <h4 class="text-sm font-medium text-gray-900 mb-3">Think-Act Records</h4>
+      <h4 class="text-sm font-medium text-gray-900 mb-3">思考过程：</h4>
       <div class="space-y-4">
         <div 
           v-for="(record, index) in thinkActRecords" 
@@ -74,7 +62,7 @@
         >
           <div class="flex items-center justify-between mb-3">
             <h5 class="text-sm font-medium text-gray-900">
-              Think-Act Record #{{ index + 1 }}
+              思考轮次 ： #{{ index + 1 }}
             </h5>
             <span :class="getStatusClass(record.status)">
               {{ record.status }}
@@ -88,23 +76,23 @@
               :key="toolInfo.id || toolIndex"
               class="bg-blue-50 rounded-md p-3"
             >
-              <h6 class="text-sm font-medium text-blue-900 mb-2">Tool Execution #{{ toolIndex + 1 }}</h6>
+              <h6 class="text-sm font-medium text-blue-900 mb-2">工具调用 #{{ toolIndex + 1 }}</h6>
               
               <div class="grid grid-cols-1 gap-2 text-sm">
                 <div>
-                  <span class="font-medium text-gray-700">Name:</span>
+                  <span class="font-medium text-gray-700">工具名:</span>
                   <span class="ml-2 text-gray-900">{{ toolInfo.name }}</span>
                 </div>
                 
                 <div>
-                  <span class="font-medium text-gray-700">Parameters:</span>
+                  <span class="font-medium text-gray-700">参数列表:</span>
                   <span class="ml-2 text-gray-900">{{ toolInfo.parameters }}</span>
                 </div>
                 
                 <div v-if="toolInfo.result">
                   <span class="font-medium text-gray-700">Result:</span>
                   <div class="mt-1 p-2 bg-white rounded border text-gray-800 text-xs">
-                    <pre class="whitespace-pre-wrap">{{ toolInfo.result }}</pre>
+                    <div v-html="formatToolResult(toolInfo.result)"></div>
                   </div>
                 </div>
               </div>
@@ -150,6 +138,13 @@
 import { ref, computed, onUnmounted } from 'vue'
 import { executionDataService } from '@/services/executionDataService'
 import type { ThinkActRecord } from '@/services/executionDataService'
+import { marked } from 'marked'
+
+// Configure marked for better rendering
+marked.setOptions({
+  breaks: true,
+  gfm: true
+})
 
 // Reactive data
 const planTemplateId = ref('planTemplate-1756109892045')
@@ -169,6 +164,65 @@ const executionStatus = computed(() => {
   if (executionResult.value) return 'SUBMITTED'
   return 'IDLE'
 })
+
+const renderedMarkdown = computed(() => {
+  if (!parsedOutput.value) return ''
+  try {
+    return marked(parsedOutput.value)
+  } catch (e) {
+    console.error('Error rendering markdown:', e)
+    return parsedOutput.value
+  }
+})
+
+const formatToolResult = (result: string): string => {
+  try {
+    // Parse the JSON result
+    const parsed = JSON.parse(result)
+    
+    // Extract the output field if it exists
+    let content = parsed.output || result
+    
+    // If content is still a string, try to parse it as JSON again
+    if (typeof content === 'string') {
+      try {
+        const innerParsed = JSON.parse(content)
+        if (Array.isArray(innerParsed) && innerParsed.length > 0 && innerParsed[0].text) {
+          content = innerParsed[0].text
+        }
+      } catch (e) {
+        // If inner parsing fails, use the content as is
+      }
+    }
+    
+          // Clean up escape characters and format the content
+      if (typeof content === 'string') {
+        console.log('Original content:', content)
+        
+        // Remove HTML tags if present
+        let cleanContent = content.replace(/<[^>]*>/g, '')
+        
+        // Replace escaped characters - handle literal \n strings
+        cleanContent = cleanContent
+          .replace(/\\n/g, '\n')  // Replace literal \n with actual newlines
+          .replace(/\\"/g, '"')
+          .replace(/^"|"$/g, '')
+        
+        console.log('After cleaning:', cleanContent)
+        
+        // Convert actual newlines to HTML line breaks
+        const result = cleanContent.replace(/\n/g, '<br>')
+        console.log('After replacing \\n:', result)
+        
+        return result
+      }
+    
+    return JSON.stringify(content, null, 2)
+  } catch (e) {
+    console.error('Error formatting tool result:', e)
+    return result
+  }
+}
 
 // Methods
 const getStatusClass = (status: string) => {

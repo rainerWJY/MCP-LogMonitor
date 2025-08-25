@@ -133,6 +133,11 @@ const refreshData = async () => {
     // Emit event to notify parent component
     emit('dataRefreshed')
     
+    // Refresh the page after successful data refresh
+    setTimeout(() => {
+      window.location.reload()
+    }, 1000) // Wait 1 second to show success state
+    
   } catch (err) {
     error.value = err instanceof Error ? err.message : '刷新数据失败'
     console.error('Error refreshing alert data:', err)
