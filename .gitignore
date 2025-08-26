@@ -1,2 +1,4 @@
 .vscode/settings.json
 **/logs/*
+.DS_Store
+backend/src/main/resources/static/

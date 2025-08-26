@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.talkflow</groupId>
 	<artifactId>logmonitor-demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>logmonitor-demo</name>
 	<description>logmonitor-demo</description>
 	<properties>

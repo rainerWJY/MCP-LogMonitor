@@ -66,25 +66,13 @@ import HeaderNav from '@/components/dashboard/HeaderNav.vue';
 import AlertDetails from '@/components/dashboard/AlertDetails.vue';
 import ControlPanel from '@/components/dashboard/ControlPanel.vue';
 import TaskExecution from '@/components/dashboard/TaskExecution.vue';
-import { mockAlert, mockMetrics, mockSREAgent, mockAnalysisResult } from '@/data/mockData';
+import { mockMetrics } from '@/data/mockData';
 
 // Reactive data
-const alert = ref(mockAlert);
 const metrics = ref(mockMetrics);
-const sreAgent = ref(mockSREAgent);
-const analysisResult = ref(mockAnalysisResult);
 
 // Component refs
 const alertDetailsRef = ref<InstanceType<typeof AlertDetails> | null>(null);
-
-// Handle data refresh event from ControlPanel
-const handleDataRefreshed = () => {
-  console.log('Data refreshed, updating AlertDetails...');
-  // Trigger refresh in AlertDetails component
-  if (alertDetailsRef.value) {
-    alertDetailsRef.value.refreshData();
-  }
-};
 
 // Component lifecycle
 onMounted(() => {
